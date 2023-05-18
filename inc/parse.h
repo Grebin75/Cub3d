@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:17 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/18 00:42:24 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:58:20 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	fill_struct(char *arg, char flag);
 
 // ARGS
 void	fill_args(char **file);
-char *copy_arg(char *line);
+char	*copy_arg(char *line);
 int		check_colour(char *colour);
 #endif

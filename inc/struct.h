@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/17 13:29:36 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/18 16:59:00 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include "utils.h"
 
-typedef struct s_cub t_cub;
+typedef struct s_cub	t_cub;
 
 struct s_cub{
 	char	*no_texture;
@@ -30,9 +30,18 @@ struct s_cub{
 	char	**map;	
 };
 
-t_cub 	*this(void);
+struct s_game{
+	void	*mlx;
+	void	*mlx_win;
+	int		width;
+	int		height;
+};
+
+t_cub	*this(void);
 void	print_cub(t_cub *cub);
 void	rm_cub(t_cub *cub);
 void	print_error(char *s);
+t_game	*game(void);
+void	init_vars(t_game *game);
 
 #endif
