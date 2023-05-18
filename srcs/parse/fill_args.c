@@ -3,14 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   fill_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/17 14:09:38 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:54:31 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
+
+void	verify_map(char **map)
+{
+	int	i;
+	int	j;
+	int	spawncounter;
+
+	spawncounter = 0;
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'E'\
+			&& map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'W' \
+			&& map[i][j] != 32)
+				print_error("Invalid char");
+			if (map[i][j] == 'S' && map[i][j] == 'W' && map[i][j] == 'E'\
+			&& map[i][j] == 'N')
+				spawncounter++;
+		}
+		if (spawncounter > 1)
+			print_error("Multiple spawn locations");
+	}
+}
+
+
 void fill_map(char **file, int i)
 {
 	int	j;

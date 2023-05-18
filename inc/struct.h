@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/17 13:29:36 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/18 14:27:39 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include "utils.h"
 
 typedef struct s_cub t_cub;
+/* typedef struct s_game t_game;
+typedef struct s_img t_img; */
 
 struct s_cub{
 	char	*no_texture;
@@ -27,8 +29,24 @@ struct s_cub{
 	char	*ea_texture;
 	char	*floor;
 	char	*ceiling;
-	char	**map;	
+	char	**map;
+	int		f_rgb;
+	int		c_rgb;
 };
+
+/* struct s_img{
+	void	*img;
+	char	*addr;
+	t_img	*next;
+};
+
+struct s_game{
+	void	*mlx;
+	void	*win;
+	int		f_rgb;
+	int		c_rgb;
+	char	**map;
+}; */
 
 t_cub 	*this(void);
 void	print_cub(t_cub *cub);

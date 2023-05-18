@@ -1,6 +1,7 @@
 SRCS		= $(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/parse/file_handler.c \
 				$(SRCS_DIR)/parse/check_args.c \
+				$(SRCS_DIR)/parse/check_map.c \
 				$(SRCS_DIR)/parse/fill_args.c \
 				$(SRCS_DIR)/parse/parse_main.c \
 				$(SRCS_DIR)/utils/utils.c \
@@ -45,7 +46,7 @@ test: re
 clean:
 	$(RM) $(OBJS_DIR) a.out
 #	make clean -C mlx_linux
-	
+
 fclean: clean
 	$(RM) $(NAME) $(OBJS)
 

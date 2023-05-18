@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: hcoutinh <hcoutinh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/17 23:54:35 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/18 15:53:21 by hcoutinh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,20 +94,22 @@ void	check_struct(t_cub *cub)
 		print_error("Missing args");
 	if (!cub->map)
 		print_error("Missing args");
-	
+	verify_map(cub->map);
+
 }
 
 int	parse_main(char **av)
 {
 	char	**file;
-	
+
 	format_checker(av[1]);
 	file = open_file(av[1]);
 	fill_args(file);
 	check_struct(this());
-	//check_path(this());
-	check_colour(this()->floor);
-	
+	check_path(this());
+	this()->f_rgb = check_colour(this()->floor);
+	this()->c_rgb = check_colour(this()->ceiling);
+	//check_map(this()->map);
 	//print_cub(this());
 	rm_cub(this());
 	return (0);
