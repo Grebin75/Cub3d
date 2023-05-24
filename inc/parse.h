@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:17 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/18 16:58:20 by gabriel          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:47:01 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		format_checker(char *str);
 char	**file_to_str(char **map, int fd, int i);
 char	**open_file(char *file);
 void	fill_struct(char *arg, char flag);
+int		check_map(void);
 
 // ARGS
 void	fill_args(char **file);

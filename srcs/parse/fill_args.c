@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/17 14:09:38 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/24 12:47:55 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void fill_map(char **file, int i)
 	j = -1;
 	while (file[++k])
 	{
+		game()->height++;
 		line = ft_strdup(file[k]);
 		malloc_check(&line, file);
 		this()->map[++j] = line;
