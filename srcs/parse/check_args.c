@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/24 12:47:42 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:01:06 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,10 @@ int	check_map(void)
 		j = -1;
 		while (this()->map[i][++j])
 		{
+			if (this()->map[i][0] != '1' || this()->map[i][ft_strlen(this()->map[x])] != '1')
+			{
+				printf(
+			}
 			if (i == 0 && (this()->map[i][j] != '1' && this()->map[i][j] != ' '))
 			{
 				printf("ABERTO NO COMECO\n");

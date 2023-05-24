@@ -1,0 +1,2 @@
+//Error if 0 on first character of last line
+//check other chars instead of only '0' on each line on check_map
