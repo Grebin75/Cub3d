@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/24 13:01:06 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:30:17 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,22 @@ int	check_colour(char *colour)
 	return (255 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }
 
+static int	top_bottom_check(int i)
+{
+	int	j;
+
+	j = -1;
+	while (this()->map[i][++j])
+	{
+		if (this()->map[i][j] != '1' && this()->map[i][j] != ' ')
+		{
+			printf("ERROR TOP OR BOTTOM");
+			return (0);
+		}
+	}
+	return (1);
+}
+
 int	check_map(void)
 {
 	int	i;
@@ -85,29 +101,13 @@ int	check_map(void)
 	while (this()->map[++i])
 	{
 		j = -1;
-		while (this()->map[i][++j])
+		if (i == 0 || i == game()->height - 1)
+			if (!top_bottom_check(i))
+				return (0);
+		while (this()->map[++j])
 		{
-			if (this()->map[i][0] != '1' || this()->map[i][ft_strlen(this()->map[x])] != '1')
-			{
-				printf(
-			}
-			if (i == 0 && (this()->map[i][j] != '1' && this()->map[i][j] != ' '))
-			{
-				printf("ABERTO NO COMECO\n");
-				break ;
-			}
-			if ((i > 1 && this()->map[i][j] == '0') && \
-			(j > ft_strlen(this()->map[i - 1]) || this()->map[i - 1][j] == ' '))
-			{
-				printf("ABERTO EM CIMA\n");
-				break ;
-			}
-			else if ((i < game()->height && this()->map[i][j] == '0') && \
-			(j > ft_strlen(this()->map[i + 1]) || this()->map[i + 1][j] == ' '))
-			{
-				printf("ABERTO BAIXO\n");
-				break ;
-			}
+			if (i > 0 && this()->map[i][j] == '0')
+				check_all(i, j);
 		}
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:17 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/24 12:47:01 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/25 11:54:32 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,8 @@ int		check_map(void);
 void	fill_args(char **file);
 char	*copy_arg(char *line);
 int		check_colour(char *colour);
+
+// CHECK POINT
+int	check_all(int i, int j);
+
 #endif
