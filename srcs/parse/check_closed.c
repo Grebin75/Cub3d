@@ -2,31 +2,32 @@
 
 static int	check_down(int i, int j)
 {
-	while (this()->map[i][j])
+	while (i < game()->height)
 	{
 		if (this()->map[i][j] == '1')
 			return (1);
 		i++;
 	}
-	printf("ABERTO baixo\n");
+	printf("ABERTO BAIXO\n");
 	return (0);
 }
 
 static int	check_up(int i, int j)
 {
-	while (this()->map[i][j])
+	while (i >= 0)
 	{
 		if (this()->map[i][j] == '1')
 			return (1);
-		i--;
+		else
+			i--;
 	}
-	printf("ABERTO cima\n");
+	printf("ABERTO CIMA\n");
 	return (0);
 }
 
 static int	check_right(int i, int j)
 {
-	while (this()->map[i][j])
+	while (j <= ft_strlen(this()->map[i] - 1))
 	{
 		if (this()->map[i][j] == '1')
 			return (1);

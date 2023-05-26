@@ -6,15 +6,15 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/24 12:56:35 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:14:15 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
 
-char *copy_arg(char *line)
+char	*copy_arg(char *line)
 {
-	char 	*new;
+	char	*new;
 	int		i;
 	int		j;
 
@@ -31,7 +31,7 @@ char *copy_arg(char *line)
 
 void	is_empty(char *arg, char *newarg)
 {
-	if(arg)
+	if (arg)
 	{
 		print_error("Invalid Format");
 		free(newarg);
@@ -94,20 +94,19 @@ void	check_struct(t_cub *cub)
 		print_error("Missing args");
 	if (!cub->map)
 		print_error("Missing args");
-	
 }
 
 int	parse_main(char **av)
 {
 	char	**file;
-	
+
 	format_checker(av[1]);
 	file = open_file(av[1]);
 	fill_args(file);
 	check_struct(this());
-	//check_path(this());
-	check_colour(this()->floor);
+	check_path(this());
 	check_map();
+	check_colour(this()->floor);
 	//print_cub(this());
 	rm_cub(this());
 	return (0);

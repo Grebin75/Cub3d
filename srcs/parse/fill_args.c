@@ -6,16 +6,17 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/24 12:47:55 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:06:29 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
-void fill_map(char **file, int i)
+
+void	fill_map(char **file, int i)
 {
-	int	j;
-	int	k;
-	char *line;
+	int		j;
+	int		k;
+	char	*line;
 
 	line = NULL;
 	j = 0;
@@ -83,7 +84,7 @@ void	fill_args(char **file)
 		if (!is_valid(file[i]) && ac == 6)
 		{
 			fill_map(file, i - 1);
-			break;
+			break ;
 		}
 		if (split_args(file[i], file))
 			ac++;
