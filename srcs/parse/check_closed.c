@@ -4,6 +4,8 @@ static int	check_down(int i, int j)
 {
 	while (i < game()->height)
 	{
+		if (this()->map[i][j] == ' ' || !this()->map[i][j])
+			break ;
 		if (this()->map[i][j] == '1')
 			return (1);
 		i++;
@@ -16,6 +18,8 @@ static int	check_up(int i, int j)
 {
 	while (i >= 0)
 	{
+		if (this()->map[i][j] == ' ' || !this()->map[i][j])
+			break ;
 		if (this()->map[i][j] == '1')
 			return (1);
 		else
@@ -27,8 +31,10 @@ static int	check_up(int i, int j)
 
 static int	check_right(int i, int j)
 {
-	while (j <= ft_strlen(this()->map[i] - 1))
+	while (j <= ft_strlen(this()->map[i]))
 	{
+		if (this()->map[i][j] == ' ' || !this()->map[i][j])
+			break ;
 		if (this()->map[i][j] == '1')
 			return (1);
 		j++;
@@ -41,6 +47,8 @@ static int	check_left(int i, int j)
 {
 	while (j >= 0)
 	{
+		if (this()->map[i][j] == ' ' || !this()->map[i][j])
+			break ;
 		if (this()->map[i][j] == '1')
 			return (1);
 		j--;

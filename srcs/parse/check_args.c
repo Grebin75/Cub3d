@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/26 11:13:31 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/27 12:33:00 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,20 +105,21 @@ int	check_map(void)
 	int	i;
 	int	j;
 
-	i = -1;
-	while (this()->map[++i])
+	i = 0;
+	while (i < ft_strlen(this()->map[i]))
 	{
+		printf("STRLEN %i\n", ft_strlen(this()->map[i]));
 		j = 0;
 		if (i == 0 || i == game()->height - 1)
 			if (!top_bottom_check(i))
 				return (0);
-		while (this()->map[j])
+		while (this()->map[i][j])
 		{
-			if ((i > 0 && i <= game()->height) && j < ft_strlen(this()->map[i]) \
-			&& not_wall(this()->map[i][j]))
+			if ((i > 0 && i <= game()->height) && not_wall(this()->map[i][j]))
 				check_all(i, j);
 			j++;
 		}
+		i++;
 	}
 	return (0);
 }
