@@ -1,2 +1,8 @@
-//Error if 0 on first character of last line
-//check other chars instead of only '0' on each line on check_map
+Segv na coluna 13 linha 2, onde tenta localizar um 1 abaixo porem nao existe nada
+
+
+11111111111111
+10001111111001
+10001111111001
+10N00000000001
+1111

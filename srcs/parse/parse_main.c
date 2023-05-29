@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/26 15:11:24 by gabriel          ###   ########.fr       */
+/*   Updated: 2023/05/29 10:23:16 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int	parse_main(char **av)
 	fill_args(file);
 	check_struct(this());
 	// check_path(this());
-	check_map();
+	check_map(this());
 	check_colour(this()->floor);
 	//print_cub(this());
 	rm_cub(this());

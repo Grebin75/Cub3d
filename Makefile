@@ -4,6 +4,7 @@ SRCS		= $(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/parse/fill_args.c \
 				$(SRCS_DIR)/parse/parse_main.c \
 				$(SRCS_DIR)/parse/check_closed.c \
+				$(SRCS_DIR)/parse/check_map.c \
 				$(SRCS_DIR)/init/init.c \
 				$(SRCS_DIR)/utils/utils.c \
 				$(SRCS_DIR)/utils/allocation.c \

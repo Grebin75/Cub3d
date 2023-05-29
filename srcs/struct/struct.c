@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: grebin <grebin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:44:00 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/17 13:31:19 by grebin           ###   ########.fr       */
+/*   Updated: 2023/05/29 10:48:04 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,13 @@ void	rm_cub(t_cub *cub)
 		free(cub->we_texture);
 	if (cub->ea_texture)
 		free(cub->ea_texture);
-
 	if (cub->floor)
 		free(cub->floor);
 	if (cub->ceiling)
 		free(cub->ceiling);
-
 	if (cub->map)
 		free_matrix(cub->map);
-	exit(0);
+	exit (0);
 }
 
 void	print_cub(t_cub *cub)

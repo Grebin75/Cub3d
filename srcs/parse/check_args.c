@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/27 12:33:00 by gabriel          ###   ########.fr       */
+/*   Updated: 2023/05/29 10:54:48 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,48 +78,3 @@ int	check_colour(char *colour)
 	return (255 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }
 
-static int	top_bottom_check(int i)
-{
-	int	j;
-
-	j = -1;
-	while (this()->map[i][++j])
-	{
-		if (this()->map[i][j] != '1' && this()->map[i][j] != ' ')
-		{
-			printf("ERROR TOP OR BOTTOM");
-			return (0);
-		}
-	}
-	return (1);
-}
-
-int	not_wall(char c)
-{
-	return (c == '0' || c == 'W' || c == 'S' || c == 'N' \
-	|| c == 'E');
-}
-
-int	check_map(void)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < ft_strlen(this()->map[i]))
-	{
-		printf("STRLEN %i\n", ft_strlen(this()->map[i]));
-		j = 0;
-		if (i == 0 || i == game()->height - 1)
-			if (!top_bottom_check(i))
-				return (0);
-		while (this()->map[i][j])
-		{
-			if ((i > 0 && i <= game()->height) && not_wall(this()->map[i][j]))
-				check_all(i, j);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
