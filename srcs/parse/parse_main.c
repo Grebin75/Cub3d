@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   parse_main.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/29 15:17:49 by gabriel          ###   ########.fr       */
+/*   Updated: 2023/05/30 11:35:33 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
 
-char	*copy_arg(char *line)
+char *copy_arg(char *line)
 {
-	char	*new;
+	char 	*new;
 	int		i;
 	int		j;
 
@@ -31,7 +31,7 @@ char	*copy_arg(char *line)
 
 void	is_empty(char *arg, char *newarg)
 {
-	if (arg)
+	if(arg)
 	{
 		print_error("Invalid Format");
 		free(newarg);
@@ -94,6 +94,7 @@ void	check_struct(t_cub *cub)
 		print_error("Missing args");
 	if (!cub->map)
 		print_error("Missing args");
+	verify_map(cub->map);
 }
 
 int	parse_main(char **av)
@@ -106,7 +107,8 @@ int	parse_main(char **av)
 	check_struct(this());
 	// check_path(this());
 	check_map(this());
-	check_colour(this()->floor);
+	this()->f_rgb = check_colour(this()->floor);
+	this()->c_rgb = check_colour(this()->ceiling);
 	//print_cub(this());
 	// rm_cub(this());
 	return (0);

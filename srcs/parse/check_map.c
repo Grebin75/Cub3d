@@ -14,10 +14,10 @@ static int	top_bottom_check(t_cub *cub)
 		}
 	}
 	j = -1;
-	while (cub->map[game()->height -1][++j])
+	while (cub->map[game()->height][++j])
 	{
-		if (cub->map[game()->height -1][j] != '1' && \
-		cub->map[game()->height -1][j] != ' ')
+		if (cub->map[game()->height][j] != '1' && \
+		cub->map[game()->height][j] != ' ')
 		{
 			printf("ERROR ON BOTTOM");
 			rm_cub(cub);

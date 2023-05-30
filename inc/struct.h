@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/24 12:53:05 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:32:25 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ struct s_cub{
 	char	*ea_texture;
 	char	*floor;
 	char	*ceiling;
-	char	**map;	
+	char	**map;
+	int		f_rgb;
+	int		c_rgb;
 };
 
 struct s_game{

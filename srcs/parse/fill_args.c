@@ -6,17 +6,43 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/26 11:06:29 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:34:36 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
 
-void	fill_map(char **file, int i)
+void	verify_map(char **map)
 {
-	int		j;
-	int		k;
-	char	*line;
+	int	i;
+	int	j;
+	int	spawncounter;
+
+	spawncounter = 0;
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'E'\
+			&& map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'W' \
+			&& map[i][j] != 32)
+				print_error("Invalid char");
+			if (map[i][j] == 'S' && map[i][j] == 'W' && map[i][j] == 'E'\
+			&& map[i][j] == 'N')
+				spawncounter++;
+		}
+		if (spawncounter > 1)
+			print_error("Multiple spawn locations");
+	}
+}
+
+void fill_map(char **file, int i)
+{
+	int	j;
+	int	k;
+	char *line;
 
 	line = NULL;
 	j = 0;
@@ -28,13 +54,13 @@ void	fill_map(char **file, int i)
 	j = -1;
 	while (file[++k])
 	{
-		game()->height++;
 		line = ft_strdup(file[k]);
 		malloc_check(&line, file);
 		this()->map[++j] = line;
 	}
 	this()->map[++j] = NULL;
 }
+
 
 int	is_valid(char *line)
 {
@@ -66,7 +92,6 @@ int	split_args(char *line, char **file)
 	return (1);
 }
 
-
 void	fill_args(char **file)
 {
 	int	i;
@@ -84,7 +109,7 @@ void	fill_args(char **file)
 		if (!is_valid(file[i]) && ac == 6)
 		{
 			fill_map(file, i - 1);
-			break ;
+			break;
 		}
 		if (split_args(file[i], file))
 			ac++;

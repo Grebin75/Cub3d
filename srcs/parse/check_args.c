@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/29 10:54:48 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:33:28 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	check_path(t_cub *cub)
 
 int	numlen(int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (n /10 && ++i)
+	while (n / 10 && ++i)
 		n = n / 10;
 	return (i);
 }
@@ -55,8 +55,8 @@ int	check_colour(char *colour)
 {
 	int	i;
 	int	ncount;
-	int	n;
-	int	rgb[3];
+	int n;
+	int rgb[3];
 
 	i = 0;
 	ncount = -1;
@@ -70,11 +70,9 @@ int	check_colour(char *colour)
 			print_error("Colour have a invalid number\n");
 		rgb[++ncount] = n;
 		i += numlen(n);
-		if ((colour[++i] && (colour[i] != ',' || ncount == 2)) \
-		|| (!colour[i] && ncount < 2))
+		if ((colour[++i] && (colour[i] != ',' || ncount == 2)) || (!colour[i] && ncount < 2))
 			print_error("Invalid colour format, try x,x,y\n");
 		i++;
 	}
 	return (255 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }
-

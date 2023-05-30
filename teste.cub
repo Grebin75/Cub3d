@@ -1,4 +1,4 @@
-NO ./path_to_the_north_texture
+NO ./imgs/barrl.xpm
 SO ./path_to_the_south_texture
 WE ./path_to_the_west_texture
 EA ./path_to_the_east_texture
@@ -12,4 +12,4 @@ C 225,30,0
 10000000001
 10000000001
 1N000000001
-11111111111
+111111111
