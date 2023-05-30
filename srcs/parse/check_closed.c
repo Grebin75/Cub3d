@@ -2,7 +2,7 @@
 
 static void	check_down(int i, int j)
 {
-	while (i < game()->height)
+	while (i < game()->height && j < ft_strlen(this()->map[i]))
 	{
 		if (!this()->map[i][j] || this()->map[i][j] == ' ')
 			break ;

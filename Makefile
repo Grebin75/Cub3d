@@ -5,6 +5,7 @@ SRCS		= $(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/parse/parse_main.c \
 				$(SRCS_DIR)/parse/check_closed.c \
 				$(SRCS_DIR)/parse/check_map.c \
+				$(SRCS_DIR)/game/keys.c \
 				$(SRCS_DIR)/init/init.c \
 				$(SRCS_DIR)/utils/utils.c \
 				$(SRCS_DIR)/utils/allocation.c \
@@ -22,14 +23,14 @@ NAME		= cub3d
 
 CC			= cc
 
-#MLX			= mlx_linux/libmlx_Linux.a
+MLX			= mlx_linux/libmlx_Linux.a
 
 INC			= -I inc -I mlx_linux
 
 CFLAGS 		= -Wall -Wextra -Werror $(INC) -g -fsanitize=address
 
 RM 			= rm -rf
-#LIBS_FLAGS	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+LIBS_FLAGS	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 all: $(NAME)
 

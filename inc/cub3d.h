@@ -5,5 +5,6 @@
 # include <stdlib.h>
 # include "mlx.h"
 # include "parse.h"
+# include "game.h"
 
 #endif
