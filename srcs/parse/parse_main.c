@@ -6,15 +6,15 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/30 11:35:33 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:51:34 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
 
-char *copy_arg(char *line)
+char	*copy_arg(char *line)
 {
-	char 	*new;
+	char	*new;
 	int		i;
 	int		j;
 
@@ -31,7 +31,7 @@ char *copy_arg(char *line)
 
 void	is_empty(char *arg, char *newarg)
 {
-	if(arg)
+	if (arg)
 	{
 		print_error("Invalid Format");
 		free(newarg);
@@ -109,7 +109,7 @@ int	parse_main(char **av)
 	check_map(this());
 	this()->f_rgb = check_colour(this()->floor);
 	this()->c_rgb = check_colour(this()->ceiling);
-	//print_cub(this());
+	print_cub(this());
 	// rm_cub(this());
 	return (0);
 }

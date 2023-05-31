@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/30 11:34:36 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/30 11:45:56 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	fill_args(char **file)
 		if (!is_valid(file[i]) && ac == 6)
 		{
 			fill_map(file, i - 1);
-			break;
+			break ;
 		}
 		if (split_args(file[i], file))
 			ac++;

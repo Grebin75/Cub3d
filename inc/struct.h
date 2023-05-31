@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/30 11:32:25 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/30 12:03:06 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_cub	t_cub;
 typedef struct s_game	t_game;
+typedef struct s_data	t_data;
 
 struct s_cub{
 	char	*no_texture;
@@ -39,6 +40,17 @@ struct s_game{
 	int		width;
 	int		height;
 };
+
+struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	int		width;
+	int		height;
+};
+
 
 t_cub	*this(void);
 void	print_cub(t_cub *cub);
