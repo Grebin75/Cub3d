@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/30 11:45:56 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:23:17 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,14 @@ void	verify_map(char **map)
 		if (spawncounter > 1)
 			print_error("Multiple spawn locations");
 	}
+	game()->height = i;
 }
 
-void fill_map(char **file, int i)
+void	fill_map(char **file, int i)
 {
-	int	j;
-	int	k;
-	char *line;
+	int		j;
+	int		k;
+	char	*line;
 
 	line = NULL;
 	j = 0;

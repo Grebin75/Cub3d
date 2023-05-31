@@ -13,16 +13,16 @@ static int	top_bottom_check(t_cub *cub)
 			rm_cub(cub);
 		}
 	}
-	j = -1;
-	while (cub->map[game()->height][++j])
-	{
-		if (cub->map[game()->height][j] != '1' && \
-		cub->map[game()->height][j] != ' ')
-		{
-			printf("ERROR ON BOTTOM");
-			rm_cub(cub);
-		}
-	}
+	// j = -1;
+	// while (cub->map[game()->height][++j])
+	// {
+	// 	if (cub->map[game()->height][j] != '1' && \
+	// 	cub->map[game()->height][j] != ' ')
+	// 	{
+	// 		printf("ERROR ON BOTTOM");
+	// 		rm_cub(cub);
+	// 	}
+	// }
 	return (1);
 }
 
@@ -38,6 +38,7 @@ int	check_map(t_cub *cub)
 	int	j;
 
 	i = -1;
+	printf("%i GAME\n", game()->height);
 	while (cub->map[++i])
 	{
 		if (!top_bottom_check(cub))

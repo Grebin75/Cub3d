@@ -46,6 +46,7 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 
 test: re
 	./cub3d teste.cub
+
 clean:
 	$(RM) $(OBJS_DIR) a.out
 #	make clean -C mlx_linux

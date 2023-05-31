@@ -10,8 +10,8 @@ int	main(int ac, char **av)
 	parse_main(av);
 	game()->mlx = mlx_init();
 	init_vars(game());
-	(game()->mlx_win) = mlx_new_window((game()->mlx), (game()->height), \
-	(game()->width), "cub3d");
+	(game()->mlx_win) = mlx_new_window((game()->mlx), (game()->win_height), \
+	(game()->win_width), "cub3d");
 	mlx_hook(game()->mlx_win, 02, (1L << 0), close_keys, game);
 	mlx_hook(game()->mlx_win, 17, (1L << 2), button_exit, game);
 	mlx_loop(game()->mlx);
