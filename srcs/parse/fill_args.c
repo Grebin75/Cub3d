@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/31 15:23:17 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/05/31 15:32:12 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void	verify_map(char **map)
 			&& map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'W' \
 			&& map[i][j] != 32)
 				print_error("Invalid char");
-			if (map[i][j] == 'S' && map[i][j] == 'W' && map[i][j] == 'E'\
-			&& map[i][j] == 'N')
+			if (map[i][j] == 'S' || map[i][j] == 'W' || map[i][j] == 'E' \
+			|| map[i][j] == 'N')
 				spawncounter++;
 		}
-		if (spawncounter > 1)
-			print_error("Multiple spawn locations");
 	}
+	if (spawncounter != 1)
+		print_error("Multiple spawn locations");
 	game()->height = i;
 }
 
@@ -48,12 +48,12 @@ void	fill_map(char **file, int i)
 	line = NULL;
 	j = 0;
 	k = i;
-	while (file[++i])
+	while (file[++i] && file[i][0])
 		++j;
 	this()->map = malloc(sizeof(char *) * (j + 1));
 	malloc_check(&line, file);
 	j = -1;
-	while (file[++k])
+	while (file[++k] && file[k][0])
 	{
 		line = ft_strdup(file[k]);
 		malloc_check(&line, file);
