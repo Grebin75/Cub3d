@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/31 15:11:07 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:00:03 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ struct s_cub{
 };
 
 struct s_game{
+	void	**img;
 	void	*mlx;
 	void	*mlx_win;
 	int		win_width;
