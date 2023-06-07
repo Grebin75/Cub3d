@@ -12,7 +12,7 @@ int	main(int ac, char **av)
 	init_vars(game());
 	(game()->mlx_win) = mlx_new_window((game()->mlx), (game()->win_width), \
 	(game()->win_height), "cub3d");
-	put_images(game(), this());
+	render(this(), game());
 	mlx_hook(game()->mlx_win, 02, (1L << 0), close_keys, game);
 	mlx_hook(game()->mlx_win, 17, (1L << 2), button_exit, game);
 	mlx_loop(game()->mlx);

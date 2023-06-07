@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/05 11:51:29 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:59:51 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,12 @@ struct s_game{
 	int		win_width;
 	int		win_height;
 	int		height;
-	int		ply_x;
-	int		ply_y;
+	double	ply_x;
+	double	ply_y;
+	double	dir_x;
+	double	dir_y;
+	double	mv_speed;
+	double	rt_speed;
 };
 
 struct s_view{
