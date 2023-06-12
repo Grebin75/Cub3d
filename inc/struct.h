@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/07 11:59:51 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/12 10:14:01 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct s_cub	t_cub;
 typedef struct s_game	t_game;
 typedef struct s_data	t_data;
 typedef struct s_view	t_view;
+typedef struct s_render	t_render;
 
 struct s_cub{
 	char	*no_texture;
@@ -42,12 +43,7 @@ struct s_game{
 	int		win_width;
 	int		win_height;
 	int		height;
-	double	ply_x;
-	double	ply_y;
-	double	dir_x;
-	double	dir_y;
-	double	mv_speed;
-	double	rt_speed;
+
 };
 
 struct s_view{
@@ -56,7 +52,6 @@ struct s_view{
 	int		n_view;
 	int		s_view;
 };
-
 
 struct	s_data {
 	void	*img;
@@ -68,12 +63,39 @@ struct	s_data {
 	int		height;
 };
 
+struct	s_render{
+	double	ply_x;
+	double	ply_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	double	mv_speed;
+	double	rt_speed;
+	double	time;
+	double	old_time;
+	double	camera_x;
+	double	ray_dirx;
+	double	ray_diry;
+	int		map_x;
+	int		map_y;
+	double	side_dist_y;
+	double	side_dist_x;
+	double	delta_x;
+	double	delta_y;
+	double	wall_dist;
+	int		hit;
+	int		side;
+	int		step_x;
+	int		step_y;
+};
 
-t_cub	*this(void);
-void	print_cub(t_cub *cub);
-void	rm_cub(t_cub *cub);
-void	print_error(char *s);
-t_game	*game(void);
-void	init_vars(t_game *game);
+t_cub		*this(void);
+void		print_cub(t_cub *cub);
+void		rm_cub(t_cub *cub);
+void		print_error(char *s);
+t_game		*game(void);
+t_render	*render(void);
+void		init_vars(t_game *game, t_render *render);
 
 #endif

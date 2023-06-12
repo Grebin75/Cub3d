@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:48:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/30 11:43:03 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/12 09:29:59 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strdup(char *s1)
 void	free_matrix(char **matrix)
 {
 	int	i;
-	
+
 	i = -1;
 	while (matrix[++i])
 		free(matrix[i]);

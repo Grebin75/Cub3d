@@ -3,6 +3,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <math.h>
 # include "mlx.h"
 # include "parse.h"
 # include "game.h"

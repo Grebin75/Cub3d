@@ -13,16 +13,6 @@ static int	top_bottom_check(t_cub *cub)
 			rm_cub(cub);
 		}
 	}
-	// j = -1;
-	// while (cub->map[game()->height][++j])
-	// {
-	// 	if (cub->map[game()->height][j] != '1' && \
-	// 	cub->map[game()->height][j] != ' ')
-	// 	{
-	// 		printf("ERROR ON BOTTOM");
-	// 		rm_cub(cub);
-	// 	}
-	// }
 	return (1);
 }
 
@@ -32,7 +22,7 @@ int	not_wall(char c)
 	|| c == 'E');
 }
 
-int	check_map(t_cub *cub)
+int	check_map(t_cub *cub, t_render *render)
 {
 	int	i;
 	int	j;
@@ -49,6 +39,12 @@ int	check_map(t_cub *cub)
 			if ((i > 0 && i <= game()->height) && not_wall(cub->map[i][j]))
 				check_all(i, j);
 			j++;
+			if (cub->map[i][j] == 'N' || cub->map[i][j] == 'S' ||
+			cub->map[i][j] == 'E' || cub->map[i][j] == 'W')
+			{
+				render->ply_x = i;
+				render->ply_y = j;
+			}
 		}
 	}
 	return (0);

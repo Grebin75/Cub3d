@@ -1,13 +1,16 @@
 #include <cub3d.h>
 
-void	init_vars(t_game *game)
+void	init_vars(t_game *game, t_render *render)
 {
 	game->win_width = 640;
 	game->win_height = 480;
-	game->dir_x = -1;
-	game->dir_y = 0;
-	game->ply_x = 14;
-	game->ply_y = 2;
+	render->dir_x = -1;
+	render->dir_y = 0;
+	render->plane_x = 0;
+	render->plane_y = 0.66;
+	render->time = 0;
+	render->old_time = 0;
+	render->hit = 0;
 }
 
 t_game	*game(void)
@@ -15,4 +18,11 @@ t_game	*game(void)
 	static t_game	game;
 
 	return (&game);
+}
+
+t_render	*render(void)
+{
+	static t_render	render;
+
+	return (&render);
 }

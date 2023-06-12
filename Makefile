@@ -7,6 +7,7 @@ SRCS		= $(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/parse/check_map.c \
 				$(SRCS_DIR)/game/keys.c \
 				$(SRCS_DIR)/game/render.c \
+				$(SRCS_DIR)/game/print.c \
 				$(SRCS_DIR)/init/init.c \
 				$(SRCS_DIR)/utils/utils.c \
 				$(SRCS_DIR)/utils/allocation.c \
