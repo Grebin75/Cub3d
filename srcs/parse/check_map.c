@@ -28,7 +28,6 @@ int	check_map(t_cub *cub, t_render *render)
 	int	j;
 
 	i = -1;
-	printf("%i GAME\n", game()->height);
 	while (cub->map[++i])
 	{
 		if (!top_bottom_check(cub))

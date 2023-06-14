@@ -1,6 +1,6 @@
 #include <cub3d.h>
 
-void	init_vars(t_game *game, t_render *render)
+int	init_vars(t_game *game, t_render *render)
 {
 	game->win_width = 640;
 	game->win_height = 480;
@@ -11,6 +11,8 @@ void	init_vars(t_game *game, t_render *render)
 	render->time = 0;
 	render->old_time = 0;
 	render->hit = 0;
+	render->mv_speed = 0.5;
+	return (1);
 }
 
 t_game	*game(void)

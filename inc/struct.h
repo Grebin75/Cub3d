@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/12 10:14:01 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:33:01 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ struct s_game{
 	int		win_width;
 	int		win_height;
 	int		height;
-
 };
 
 struct s_view{
@@ -96,6 +95,6 @@ void		rm_cub(t_cub *cub);
 void		print_error(char *s);
 t_game		*game(void);
 t_render	*render(void);
-void		init_vars(t_game *game, t_render *render);
+int			init_vars(t_game *game, t_render *render);
 
 #endif
