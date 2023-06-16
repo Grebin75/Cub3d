@@ -11,3 +11,17 @@ void	vertical_line(t_game *game, int x, int y1, int y2, int color)
 		y++;
 	}
 }
+
+void	cls(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (++x < game->win_height)
+	{
+		y = -1;
+		while (++y < game->win_width)
+			mlx_pixel_put(game->mlx, game->mlx_win, x, y, 0x00000000);
+	}
+}

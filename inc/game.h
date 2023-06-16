@@ -10,5 +10,6 @@ int			movement_keys(int keycode);
 t_render	*render(void);
 void		vertical_line(t_game *game, int x, int y1, int y2, int color);
 int			start_game(void);
+void		cls(t_game *game);
 
 #endif

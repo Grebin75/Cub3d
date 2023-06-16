@@ -58,9 +58,9 @@ void	rendering(void)
 				render()->hit = 1;
 		}
 		if (render()->side == 0)
-			render()->wall_dist = (render()->side_dist_x - render()->delta_x);
+			render()->wall_dist = render()->map_x - render()->ply_x + ((1 - render()->step_x) / 2) - render()->ray_dirx;
 		else
-			render()->wall_dist = (render()->side_dist_y - render()->delta_y);
+			render()->wall_dist = render()->map_y - render()->ply_y + ((1 - render()->step_y) / 2) - render()->ray_diry;
 		line_height = (int)(game()->win_height / render()->wall_dist);
 		draw_start = ((line_height * -1) / 2) + (game()->win_height / 2);
 		if (draw_start < 0)
@@ -68,8 +68,8 @@ void	rendering(void)
 		draw_end = (line_height / 2) + (game()->win_height / 2);
 		if (draw_end >= game()->win_height)
 			draw_end = game()->win_height - 1;
-		if (this()->map[render()->map_x][render()->map_y] == 1)
-			color = 0xFFFFFF;
+		if (this()->map[render()->map_x / 64][render()->map_y / 64] == 1)
+			color = 0xFF0000;
 		else
 			color = 0x00FF00;
 		if (render()->side == 1)
@@ -81,5 +81,6 @@ void	rendering(void)
 int	start_game(void)
 {
 	rendering();
+	// cls(game());
 	return (0);
 }

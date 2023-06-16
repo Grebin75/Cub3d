@@ -1,28 +1,35 @@
 #include "cub3d.h"
 
+static void	key_ws(t_render *render, int keycode)
+{
+	if (keycode == 115)
+	{
+		if ((this()->map[(int)(render->ply_x + render->dir_x \
+		* render->mv_speed)])[(int)render->ply_y] == '0')
+			render->ply_x += render->dir_x * render->mv_speed;
+		if ((this()->map[(int)render->ply_x][(int)(render->ply_y \
+		+ render->dir_y * render->mv_speed)]) == '0')
+			render->ply_y += render->dir_y * render->mv_speed;
+	}
+	if (keycode == 119)
+	{
+		if ((this()->map[(int)(render->ply_x - render->dir_x \
+		* render->mv_speed)])[(int)render->ply_y])
+			render->ply_x -= render->dir_x * render->mv_speed;
+		if ((this()->map[(int)render->ply_x][(int)(render->ply_y \
+		- render->dir_y * render->mv_speed)]))
+			render->ply_y -= render->dir_y * render->mv_speed;
+	}
+}
+
 int	movement_keys(int keycode)
 {
 	double	old_dir;
 	double	old_plane;
+
 	printf("X %f Y %f\n", render()->ply_x, render()->ply_y);
-	if (keycode == 119)
-	{
-		if (!(this()->map[(int)(render()->ply_x + render()->dir_x * render()->mv_speed)]\
-		[(int)render()->ply_y]) && this()->map[(int)(render()->ply_x)])
-			render()->ply_x += render()->dir_x * render()->mv_speed;
-		if (!(this()->map[(int)render()->ply_x][(int)(render()->ply_y + render()->dir_y *
-		render()->mv_speed)]))
-			render()->ply_y += render()->dir_y * render()->mv_speed;
-	}
-	if (keycode == 115)
-	{
-		if (!(this()->map[(int)(render()->ply_x + render()->dir_x * render()->mv_speed)]\
-		[(int)render()->ply_y]))
-			render()->ply_x -= render()->dir_x * render()->mv_speed;
-		if (!(this()->map[(int)render()->ply_x][(int)(render()->ply_y + render()->dir_y *
-		render()->mv_speed)]))
-			render()->ply_y -= render()->dir_y * render()->mv_speed;
-	}
+	if (keycode == 119 || keycode == 115)
+		key_ws(render(), keycode);
 	if (keycode == 100)
 	{
 		old_dir = render()->dir_x;
@@ -41,6 +48,7 @@ int	movement_keys(int keycode)
 		render()->plane_x = render()->plane_x * cos(render()->rt_speed) - render()->plane_y * sin(render()->rt_speed);
 		render()->plane_y = old_plane * sin(render()->rt_speed) + render()->plane_y * cos(render()->rt_speed);
 	}
+	cls(game());
 	return (0);
 }
 
