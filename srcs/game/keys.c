@@ -4,22 +4,23 @@ int	movement_keys(int keycode)
 {
 	double	old_dir;
 	double	old_plane;
+	printf("X %f Y %f\n", render()->ply_x, render()->ply_y);
 	if (keycode == 119)
 	{
-		if ((this()->map[(int)(render()->ply_x + render()->dir_x * render()->mv_speed)]\
-		[(int)render()->ply_y]) == 0)
+		if (!(this()->map[(int)(render()->ply_x + render()->dir_x * render()->mv_speed)]\
+		[(int)render()->ply_y]) && this()->map[(int)(render()->ply_x)])
 			render()->ply_x += render()->dir_x * render()->mv_speed;
-		if ((this()->map[(int)render()->ply_x][(int)(render()->ply_y + render()->dir_y *
-		render()->mv_speed)]) == 0)
+		if (!(this()->map[(int)render()->ply_x][(int)(render()->ply_y + render()->dir_y *
+		render()->mv_speed)]))
 			render()->ply_y += render()->dir_y * render()->mv_speed;
 	}
 	if (keycode == 115)
 	{
-		if ((this()->map[(int)(render()->ply_x + render()->dir_x * render()->mv_speed)]\
-		[(int)render()->ply_y]) == 0)
+		if (!(this()->map[(int)(render()->ply_x + render()->dir_x * render()->mv_speed)]\
+		[(int)render()->ply_y]))
 			render()->ply_x -= render()->dir_x * render()->mv_speed;
-		if ((this()->map[(int)render()->ply_x][(int)(render()->ply_y + render()->dir_y *
-		render()->mv_speed)]) == 0)
+		if (!(this()->map[(int)render()->ply_x][(int)(render()->ply_y + render()->dir_y *
+		render()->mv_speed)]))
 			render()->ply_y -= render()->dir_y * render()->mv_speed;
 	}
 	if (keycode == 100)

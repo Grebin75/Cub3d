@@ -54,28 +54,24 @@ void	rendering(void)
 				render()->map_y += render()->step_y;
 				render()->side = 1;
 			}
-			if (this()->map[render()->map_y][render()->map_x] > 0)
+			if (this()->map[render()->map_x][render()->map_y] > 0)
 				render()->hit = 1;
 		}
 		if (render()->side == 0)
 			render()->wall_dist = (render()->side_dist_x - render()->delta_x);
 		else
 			render()->wall_dist = (render()->side_dist_y - render()->delta_y);
-		line_height = (int)(game()->height / render()->wall_dist);
-		draw_start = ((line_height * -1) / 2) + (game()->height / 2);
+		line_height = (int)(game()->win_height / render()->wall_dist);
+		draw_start = ((line_height * -1) / 2) + (game()->win_height / 2);
 		if (draw_start < 0)
 			draw_start = 0;
-		printf("X %i Y%i\n", render()->map_x, render()->map_y);
-		draw_end = (line_height / 2) + (game()->height / 2);
-		if (draw_end >= game()->height)
-			draw_end = game()->height - 1;
-		if (this()->map[render()->map_y][render()->map_x] == 1)
-		{
-			printf("Teste\n");
-			color = 0xFF0000;
-		}
+		draw_end = (line_height / 2) + (game()->win_height / 2);
+		if (draw_end >= game()->win_height)
+			draw_end = game()->win_height - 1;
+		if (this()->map[render()->map_x][render()->map_y] == 1)
+			color = 0xFFFFFF;
 		else
-			color = 0xFFFF00;
+			color = 0x00FF00;
 		if (render()->side == 1)
 			color /= 2;
 		vertical_line(game(), i, draw_start, draw_end, color);

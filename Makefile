@@ -46,7 +46,7 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 			@mkdir -p $(@D)
 			@$(CC) $(CFLAGS) -c $< -o $@
 
-test: re
+t: re
 	./cub3d teste.cub
 
 clean:
