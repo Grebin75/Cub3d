@@ -18,10 +18,10 @@ void	cls(t_game *game)
 	int	y;
 
 	x = -1;
-	while (++x < game->win_height)
+	while (++x < game->win_width)
 	{
 		y = -1;
-		while (++y < game->win_width)
+		while (++y < game->win_height)
 			mlx_pixel_put(game->mlx, game->mlx_win, x, y, 0x00000000);
 	}
 }

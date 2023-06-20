@@ -41,8 +41,8 @@ int	check_map(t_cub *cub, t_render *render)
 			if (cub->map[i][j] == 'N' || cub->map[i][j] == 'S' ||
 			cub->map[i][j] == 'E' || cub->map[i][j] == 'W')
 			{
-				render->ply_x = i;
-				render->ply_y = j;
+				render->ply_x = j;
+				render->ply_y = i;
 			}
 		}
 	}

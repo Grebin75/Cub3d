@@ -11,8 +11,9 @@ void	init_vars(t_game *game, t_render *render)
 	render->time = 0;
 	render->old_time = 0;
 	render->hit = 0;
-	render->mv_speed = 0.5;
-	render->rt_speed = 0.5;
+	render->mv_speed = 0.05;
+	render->rt_speed = 0.05;
+	render->neg_rt = -0.05;
 }
 
 t_game	*game(void)

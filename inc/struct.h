@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/16 10:11:39 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/20 11:13:29 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ struct	s_render{
 	double	plane_y;
 	double	mv_speed;
 	double	rt_speed;
+	double	neg_rt;
 	double	time;
 	double	old_time;
 	double	camera_x;
