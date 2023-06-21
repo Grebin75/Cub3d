@@ -49,7 +49,7 @@ int	movement_keys(int keycode)
 		render()->plane_x = render()->plane_x * cos(render()->rt_speed) - render()->plane_y * sin(render()->rt_speed);
 		render()->plane_y = old_planeY * sin(render()->rt_speed) + render()->plane_y * cos(render()->rt_speed);
 	}
-	cls(game());
+	// cls(game());
 	return (0);
 }
 

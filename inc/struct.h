@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/20 11:13:29 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:22:07 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		rm_cub(t_cub *cub);
 void		print_error(char *s);
 t_game		*game(void);
 t_render	*render(void);
+t_data		*data(void);
 void		init_vars(t_game *game, t_render *render);
 
 #endif

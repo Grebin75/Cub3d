@@ -29,3 +29,10 @@ t_render	*render(void)
 
 	return (&render);
 }
+
+t_data	*data(void)
+{
+	static t_data	data;
+
+	return (&data);
+}

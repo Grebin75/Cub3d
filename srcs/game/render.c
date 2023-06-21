@@ -66,7 +66,7 @@ void	rendering(void)
 				mapy += stepy;
 				side = 1;
 			}
-			if (this()->map[mapx][mapy] > 0)
+			if (this()->map[mapx][mapy] == '1')
 				hit = 1;
 			if (side == 0)
 				wall_dist = (mapx - render()->ply_x + (1 - stepx) / 2) / raydirx;
@@ -79,10 +79,10 @@ void	rendering(void)
 			draw_end = ((lineheight / 2) + (game()->win_height / 2));
 			if (draw_end >= game()->win_height)
 				draw_end = game()->win_height - 1;
-			if (this()->map[mapy][mapx] == '1')
+			if (this()->map[mapx][mapy] == '1')
 				color = 0xFF0000;
 			else
-				color = 0xFFFF00;
+				color = 0x000000;
 			if (side == 1)
 				color /= 2;
 			vertical_line(game(), x, draw_start, draw_end, color);
@@ -92,7 +92,7 @@ void	rendering(void)
 
 int	start_game(void)
 {
+	cls(game());
 	rendering();
-	// cls(game());
 	return (0);
 }
