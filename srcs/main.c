@@ -3,20 +3,9 @@
 int	main(int ac, char **av)
 {
 	if (ac != 2)
-	{
-		printf("Wrong number of arguments");
-		return (0);
-	}
-	parse_main(av);
-	game()->mlx = mlx_init();
-	init_vars(game(), render());
-	(game()->mlx_win) = mlx_new_window((game()->mlx), (game()->win_width), \
-	(game()->win_height), "cub3d");
-	data()->img = mlx_new_image(game()->mlx, game()->win_width, game()->win_height);
-	data()->addr = mlx_get_data_addr(data()->img, &data()->bits_per_pixel, \
-	&data()->line_length, &data()->endian);
+		print_error("Wrong number of arguments");
+	start_engine(av);
 	mlx_loop_hook(game()->mlx, &start_game, &game);
-
 	mlx_hook(game()->mlx_win, 02, (1L << 0), close_keys, game);
 	mlx_hook(game()->mlx_win, 17, (1L << 2), button_exit, game);
 	mlx_loop(game()->mlx);

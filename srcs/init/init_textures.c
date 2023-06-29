@@ -1,25 +1,18 @@
 #include "cub3d.h"
 
-void	init_textures(t_cub *cub,t_game *game)
+static void	load_images(char *text, char *path, t_render *render, t_game *game)
 {
-	int	width;
-	int	height;
+	text = mlx_xpm_file_to_image(game->mlx, path, &render->img_width, \
+	&render->img_height);
+	if (!text)
+		print_error("Error on load images");
+}
 
-	width = 64;
-	height = width;
+void	init_textures(t_cub *cub, t_game *game)
+{
 	game->img = malloc(sizeof(void *) * 4);
-	if (!game->img)
-		print_error("Imgs malloc error");
-	game->img[0] = mlx_xpm_file_to_image(game->mlx, cub->no_texture, &width, &height);
-	if (!game->img[0])
-		print_error("Error on image");
-	game->img[1] = mlx_xpm_file_to_image(game->mlx, cub->so_texture, &width, &height);
-	if (!game->img[1])
-		print_error("Error on image");
-	game->img[2] = mlx_xpm_file_to_image(game->mlx, cub->we_texture, &width, &height);
-	if (!game->img[2])
-		print_error("Error on image");
-	game->img[3] = mlx_xpm_file_to_image(game->mlx, cub->ea_texture, &width, &height);
-	if (!game->img[3])
-		print_error("Error on image");
+	load_images(game->img[0], cub->no_texture, render(), game);
+	load_images(game->img[1], cub->no_texture, render(), game);
+	load_images(game->img[2], cub->no_texture, render(), game);
+	load_images(game->img[3], cub->no_texture, render(), game);
 }

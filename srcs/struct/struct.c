@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:44:00 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/29 10:48:04 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:13:43 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	print_cub(t_cub *cub)
 	int	i;
 
 	i = -1;
-	
+
 	if (cub->no_texture)
 		printf("NORTH: %s\n", cub->no_texture);
 	if (cub->so_texture)
@@ -60,7 +60,6 @@ void	print_cub(t_cub *cub)
 	printf("MAP:\n");
 	while (cub->map && cub->map[++i])
 		printf("%s\n", cub->map[i]);
-	
 }
 
 t_cub *this()

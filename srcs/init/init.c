@@ -4,6 +4,8 @@ void	init_vars(t_game *game, t_render *render)
 {
 	game->win_width = 640;
 	game->win_height = 480;
+	render->img_height = 64;
+	render->img_width = 64;
 	render->dir_x = -1;
 	render->dir_y = 0;
 	render->plane_x = 0;

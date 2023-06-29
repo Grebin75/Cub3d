@@ -9,6 +9,8 @@ SRCS		= $(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/game/render.c \
 				$(SRCS_DIR)/game/print.c \
 				$(SRCS_DIR)/init/init.c \
+				$(SRCS_DIR)/init/init_textures.c \
+				$(SRCS_DIR)/init/start_game.c \
 				$(SRCS_DIR)/utils/utils.c \
 				$(SRCS_DIR)/utils/allocation.c \
 				$(SRCS_DIR)/struct/struct.c \

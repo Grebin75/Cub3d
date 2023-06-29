@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/21 10:22:07 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/28 09:04:03 by gabriel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "mlx_int.h"
 # include "utils.h"
 
 typedef struct s_cub	t_cub;
@@ -88,6 +89,9 @@ struct	s_render{
 	int		side;
 	int		step_x;
 	int		step_y;
+	int		img_height;
+	int		img_width;
+	t_img	*image;
 };
 
 t_cub		*this(void);
@@ -98,5 +102,6 @@ t_game		*game(void);
 t_render	*render(void);
 t_data		*data(void);
 void		init_vars(t_game *game, t_render *render);
+void		init_textures(t_cub *cub, t_game *game);
 
 #endif
