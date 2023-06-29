@@ -1,18 +1,18 @@
 #include "cub3d.h"
 
-void	vertical_line(t_game *game, int x, int y1, int y2, int color)
+void	vertical_line(t_game *game, t_render *render, t_data *data)
 {
 	int	y;
+	int	x;
 
-	y = y1;
-	if (color == (0x000000))
-		return ;
-	while (y <= y2)
+	y = -1;
+	while (++y < game->win_height)
 	{
-		my_mlx_pixel_put(render(), x, y, color);
-		y++;
+		x = -1;
+		while (++x < game->win_width)
+			data->addr[y * game->win_width + x] = render->buffer[y][x];
 	}
-	mlx_put_image_to_window(game->mlx, game->mlx_win, data()->img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->mlx_win, data->img, 0, 0);
 }
 
 void	my_mlx_pixel_put(t_render *render, int x, int y, int color)

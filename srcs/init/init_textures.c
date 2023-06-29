@@ -1,16 +1,45 @@
 #include "cub3d.h"
 
-static void	load_images(char *text, char *path, t_render *render, t_game *game)
+static void	load_images(int *text, char *path, t_render *render, t_game *game)
 {
-	text = mlx_xpm_file_to_image(game->mlx, path, &render->img_width, \
+	int	x;
+	int	y;
+
+	(data()->img) = mlx_xpm_file_to_image(game->mlx, path, &render->img_width, \
 	&render->img_height);
-	if (!text)
-		print_error("Error on load images");
+	(data()->addr) = (int *)mlx_get_data_addr(data()->img, \
+	&data()->bits_per_pixel, &data()->line_length, &data()->endian);
+	x = -1;
+	while (++x < render->img_width)
+	{
+		y = -1;
+		while (++y < render->img_height)
+			text[render->img_width * y + x] = data()->addr[render->img_width * y + x];
+	}
+	mlx_destroy_image(game->mlx, data()->img);
 }
 
 void	init_textures(t_cub *cub, t_game *game)
 {
-	game->img = malloc(sizeof(void *) * 4);
+	int	i;
+	int	j;
+
+	i = -1;
+	game->img = (int **)malloc(sizeof(int *) * 4);
+	while (++i < 4)
+	{
+		game->img[i] = malloc(sizeof(int) * (render()->img_height * \
+		render()->img_width));
+		if (!game->img[i])
+			print_error("Error on Init Textures");
+	}
+	i = -1;
+	while (++i < 4)
+	{
+		j = -1;
+		while (++j < 4)
+			game->img[i][j] = 0;
+	}
 	load_images(game->img[0], cub->no_texture, render(), game);
 	load_images(game->img[1], cub->no_texture, render(), game);
 	load_images(game->img[2], cub->no_texture, render(), game);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/28 09:04:03 by gabriel          ###   ########.fr       */
+/*   Updated: 2023/06/29 12:59:12 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # include <unistd.h>
 # include "mlx_int.h"
 # include "utils.h"
+
+# define GAME_WIDTH 640
+# define GAME_HEIGHT 480
 
 typedef struct s_cub	t_cub;
 typedef struct s_game	t_game;
@@ -38,7 +41,7 @@ struct s_cub{
 };
 
 struct s_game{
-	void	**img;
+	int		**img;
 	void	*mlx;
 	void	*mlx_win;
 	int		win_width;
@@ -55,7 +58,7 @@ struct s_view{
 
 struct	s_data {
 	void	*img;
-	char	*addr;
+	int		*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -75,22 +78,17 @@ struct	s_render{
 	double	neg_rt;
 	double	time;
 	double	old_time;
-	double	camera_x;
 	double	ray_dirx;
 	double	ray_diry;
 	int		map_x;
 	int		map_y;
-	double	side_dist_y;
-	double	side_dist_x;
 	double	delta_x;
 	double	delta_y;
-	double	wall_dist;
 	int		hit;
-	int		side;
-	int		step_x;
-	int		step_y;
 	int		img_height;
 	int		img_width;
+	int		buffer[GAME_HEIGHT][GAME_WIDTH];
+	int		re_buffer;
 	t_img	*image;
 };
 
