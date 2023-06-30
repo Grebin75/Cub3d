@@ -79,6 +79,7 @@ int	movement_keys(int keycode)
 		key_ad(render(), keycode);
 	if (keycode == 65363 || keycode == 65361)
 		rotate (render(), keycode);
+	mlx_clear_window(game()->mlx, game()->mlx_win);
 	return (0);
 }
 

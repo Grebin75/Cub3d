@@ -10,11 +10,11 @@ static void	load_images(int *text, char *path, t_render *render, t_game *game)
 	(data()->addr) = (int *)mlx_get_data_addr(data()->img, \
 	&data()->bits_per_pixel, &data()->line_length, &data()->endian);
 	x = -1;
-	while (++x < render->img_width)
+	while (++x < render->img_height)
 	{
 		y = -1;
-		while (++y < render->img_height)
-			text[render->img_width * y + x] = data()->addr[render->img_width * y + x];
+		while (++y < render->img_width)
+			text[render->img_width * x + y] = data()->addr[render->img_width * x + y];
 	}
 	mlx_destroy_image(game->mlx, data()->img);
 }
@@ -37,7 +37,7 @@ void	init_textures(t_cub *cub, t_game *game)
 	while (++i < 4)
 	{
 		j = -1;
-		while (++j < 4)
+		while (++j < render()->img_width * render()->img_height)
 			game->img[i][j] = 0;
 	}
 	load_images(game->img[0], cub->no_texture, render(), game);

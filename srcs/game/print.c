@@ -15,25 +15,25 @@ void	vertical_line(t_game *game, t_render *render, t_data *data)
 	mlx_put_image_to_window(game->mlx, game->mlx_win, data->img, 0, 0);
 }
 
-void	my_mlx_pixel_put(t_render *render, int x, int y, int color)
-{
-	char	*dst;
+// void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+// {
+// 	char	*dst;
 
-	dst = render->image->data + (y * render->image->size_line + x * \
-	(render->image->bpp / 8));
-	*(unsigned int *)dst = color;
-}
+// 	dst = (int*)data->addr + (y * data->line_length + x * \
+// 	(data->bits_per_pixel / 8));
+// 	*(unsigned int*)dst = color;
+// }
 
-void	cls(t_game *game)
-{
-	int	x;
-	int	y;
+// void	cls(t_game *game)
+// {
+// 	int	x;
+// 	int	y;
 
-	x = -1;
-	while (++x < game->win_width)
-	{
-		y = -1;
-		while (++y < game->win_height)
-			my_mlx_pixel_put(render(), x, y, 0x00000000);
-	}
-}
+// 	x = -1;
+// 	while (++x < game->win_width)
+// 	{
+// 		y = -1;
+// 		while (++y < game->win_height)
+// 			my_mlx_pixel_put(data(), x, y, 0x000000);
+// 	}
+// }

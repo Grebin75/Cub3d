@@ -96,7 +96,7 @@ void	rendering(void)
 			if (draw_end >= game()->win_height)
 				draw_end = game()->win_height - 1;
 
-			texture_number = this()->map[mapy][mapx];
+			texture_number = this()->map[mapy][mapx] - '0';
 			if (side == 0)
 				wallx = render()->ply_y + wall_dist * raydiry;
 			else
@@ -114,8 +114,10 @@ void	rendering(void)
 			{
 				texture_y = (int)texture_position & (render()->img_height - 1);
 				texture_position += step;
-				color = game()->img[0][render()->img_height * texture_y + texture_x];
-				render()->buffer[y][x] = 0;
+				color = game()->img[texture_number][render()->img_height * texture_y + texture_x];
+				if (side == 1)
+					color = (color >> 1) & 8355711;
+				render()->buffer[y][x] = color;
 				render()->re_buffer = 1;
 				y++;
 			}
@@ -125,8 +127,8 @@ void	rendering(void)
 
 int	start_game(void)
 {
+	// cls(game());
 	rendering();
 	vertical_line(game(), render(), data());
-	// cls(game());
 	return (0);
 }

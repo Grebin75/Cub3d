@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/29 12:59:12 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/06/30 12:10:10 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ struct s_view{
 
 struct	s_data {
 	void	*img;
-	int		*addr;
+	int	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
