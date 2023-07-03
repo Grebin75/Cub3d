@@ -24,16 +24,16 @@ void	vertical_line(t_game *game, t_render *render, t_data *data)
 // 	*(unsigned int*)dst = color;
 // }
 
-// void	cls(t_game *game)
-// {
-// 	int	x;
-// 	int	y;
+void	cls(t_game *game)
+{
+	int	x;
+	int	y;
 
-// 	x = -1;
-// 	while (++x < game->win_width)
-// 	{
-// 		y = -1;
-// 		while (++y < game->win_height)
-// 			my_mlx_pixel_put(data(), x, y, 0x000000);
-// 	}
-// }
+	x = -1;
+	while (++x < game->win_width)
+	{
+		y = -1;
+		while (++y < game->win_height)
+			mlx_pixel_put(game->mlx, game->mlx_win, x, y, 0x000000);
+	}
+}
