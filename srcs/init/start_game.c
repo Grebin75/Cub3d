@@ -5,6 +5,7 @@ void	start_engine(char **av)
 	parse_main(av);
 	game()->mlx = mlx_init();
 	init_vars(game(), render());
+	// init_position(game(), render());
 	init_textures(this(), game());
 	(game()->mlx_win) = mlx_new_window((game()->mlx), (game()->win_width), \
 	(game()->win_height), "cub3d");

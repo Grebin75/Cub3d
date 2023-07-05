@@ -84,7 +84,6 @@ int	movement_keys(int keycode)
 
 int	close_keys(int keycode)
 {
-	printf("%i\n", keycode);
 	if (keycode == 65363 || keycode == 65361 || \
 	keycode == 115 || keycode == 119 || keycode == 100 || keycode == 97)
 		movement_keys(keycode);

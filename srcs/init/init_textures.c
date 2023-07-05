@@ -41,7 +41,7 @@ void	init_textures(t_cub *cub, t_game *game)
 			game->img[i][j] = 0;
 	}
 	load_images(game->img[0], cub->no_texture, render(), game);
-	load_images(game->img[1], cub->no_texture, render(), game);
-	load_images(game->img[2], cub->no_texture, render(), game);
-	load_images(game->img[3], cub->no_texture, render(), game);
+	load_images(game->img[1], cub->so_texture, render(), game);
+	load_images(game->img[2], cub->ea_texture, render(), game);
+	load_images(game->img[3], cub->we_texture, render(), game);
 }

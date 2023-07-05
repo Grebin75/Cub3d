@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/30 12:10:10 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/05 12:49:07 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ struct	s_render{
 	int		img_width;
 	int		buffer[GAME_HEIGHT][GAME_WIDTH];
 	int		re_buffer;
+	int		copy_dirx;
+	int		copy_diry;
 	t_img	*image;
 };
 
