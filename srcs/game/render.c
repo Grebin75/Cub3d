@@ -1,5 +1,14 @@
 #include "cub3d.h"
 
+static int	print_walls(int texture_y, int texture_x, int color)
+{
+	if (this()->map[render()->mapy][render()->mapx] == '1')
+		color = game()->img[0][render()->img_height * texture_y + texture_x];
+	else
+		color = 0;
+	return (color);
+}
+
 void	rendering(void)
 {
 	int		x;
@@ -7,8 +16,6 @@ void	rendering(void)
 	double	camerax;
 	double	raydirx;
 	double	raydiry;
-	int		mapx;
-	int		mapy;
 	double	side_dist_x;
 	double	side_dist_y;
 	double	wall_dist;
@@ -20,7 +27,7 @@ void	rendering(void)
 	int		lineheight;
 	int		draw_start;
 	int		draw_end;
-	int		color;
+	int		color = 0;
 	int		texture_number;
 	double	wallx;
 	int		texture_x;
@@ -28,59 +35,56 @@ void	rendering(void)
 	double	texture_position;
 
 	x = -1;
-	for (int a = 0; a < 480 ; a++)
-		for (int b = 0; b < 640 ; b++)
-			render()->buffer[a][b] = 0;
 	while (++x < game()->win_width)
 	{
 		camerax = ((2 * x) / (double)(game()->win_width) - 1);
 		raydirx = render()->dir_x + render()->plane_x * camerax;
 		raydiry = render()->dir_y + render()->plane_y * camerax;
-		mapx = (int)render()->ply_x;
-		mapy = (int)render()->ply_y;
+		render()->mapx = (int)render()->ply_x;
+		render()->mapy = (int)render()->ply_y;
 		render()->delta_x = fabs(1 / raydirx);
 		render()->delta_y = fabs(1 / raydiry);
 		hit = 0;
 		if (raydirx < 0)
 		{
 			stepx = -1;
-			side_dist_x = ((render()->ply_x - mapx) * render()->delta_x);
+			side_dist_x = ((render()->ply_x - render()->mapx) * render()->delta_x);
 		}
 		else
 		{
 			stepx = 1;
-			side_dist_x = ((mapx + 1.0 - render()->ply_x) * render()->delta_x);
+			side_dist_x = ((render()->mapx + 1.0 - render()->ply_x) * render()->delta_x);
 		}
 		if (raydiry < 0)
 		{
 			stepy = -1;
-			side_dist_y = ((render()->ply_y - mapy) * render()->delta_y);
+			side_dist_y = ((render()->ply_y - render()->mapy) * render()->delta_y);
 		}
 		else
 		{
 			stepy = 1;
-			side_dist_y = ((mapy + 1.0 - render()->ply_y) * render()->delta_y);
+			side_dist_y = ((render()->mapy + 1.0 - render()->ply_y) * render()->delta_y);
 		}
 		while (hit == 0)
 		{
 			if (side_dist_x < side_dist_y)
 			{
 				side_dist_x += render()->delta_x;
-				mapx += stepx;
+				render()->mapx += stepx;
 				side = 0;
 			}
 			else
 			{
 				side_dist_y += render()->delta_y;
-				mapy += stepy;
+				render()->mapy += stepy;
 				side = 1;
 			}
-			if (this()->map[mapy][mapx] == '1')
+			if (this()->map[render()->mapy][render()->mapx] == '1')
 				hit = 1;
 			if (side == 0)
-				wall_dist = (mapx - render()->ply_x + (1 - stepx) / 2) / raydirx;
+				wall_dist = (render()->mapx - render()->ply_x + (1 - stepx) / 2) / raydirx;
 			else
-				wall_dist = (mapy - render()->ply_y + (1 - stepy) / 2) / raydiry;
+				wall_dist = (render()->mapy - render()->ply_y + (1 - stepy) / 2) / raydiry;
 			lineheight = (int)(game()->win_height / wall_dist);
 			draw_start = ((-lineheight / 2) + (game()->win_height / 2));
 			if (draw_start < 0)
@@ -89,7 +93,7 @@ void	rendering(void)
 			if (draw_end >= game()->win_height)
 				draw_end = game()->win_height - 1;
 
-			texture_number = this()->map[mapy][mapx] - '0';
+			texture_number = this()->map[render()->mapy][render()->mapx] - '0';
 			if (side == 0)
 				wallx = render()->ply_y + wall_dist * raydiry;
 			else
@@ -107,24 +111,7 @@ void	rendering(void)
 			{
 				texture_y = (int)texture_position & (render()->img_height - 1);
 				texture_position += step;
-				// if (this()->map[mapy][mapx] == '1' && sin(render()->dir_x > 0) && cos(render()->dir_x < 1) && cos(render()->dir_x > 0))
-				// 	color = game()->img[0][render()->img_height * texture_y + texture_x];
-				// else if (this()->map[mapy][mapx] == '1' && sin(render()->dir_x < 0) && sin(render()->dir_x > 1) && cos(render()->dir_x < 0))
-				// 	color = game()->img[1][render()->img_height * texture_y + texture_x];
-				// else if (this()->map[mapy][mapx] == '1' && sin(render()->dir_x < 0) && cos(render()->dir_x > 0) && cos(render()->dir_x < 1))
-				// 	color = game()->img[2][render()->img_height * texture_y + texture_x];
-				// else if (this()->map[mapy][mapx] == '1' && sin(render()->dir_x > 0) && cos(render()->dir_x > 0))
-				// 	color = game()->img[3][render()->img_height * texture_y + texture_x];
-				if (this()->map[mapy][mapx] == '1' && (raydiry > render()->ply_x))
-					color = game()->img[0][render()->img_height * texture_y + texture_x];
-				else if (this()->map[mapy][mapx] == '1' && (raydiry < render()->ply_x))
-					color = game()->img[1][render()->img_height * texture_y + texture_x];
-				if (this()->map[mapy][mapx] == '1' && (raydirx < render()->ply_y))
-					color = game()->img[2][render()->img_height * texture_y + texture_x];
-				else if (this()->map[mapy][mapx] == '1' && (raydirx > render()->ply_y))
-					color = game()->img[3][render()->img_height * texture_y + texture_x];
-				else
-					color = 0;
+				color = print_walls(texture_y, texture_x, color);
 				render()->buffer[y][x] = color;
 				y++;
 			}
@@ -133,8 +120,11 @@ void	rendering(void)
 
 }
 
+
+
 int	start_game(void)
 {
+	cls();
 	rendering();
 	vertical_line(game(), render(), data());
 	return (0);

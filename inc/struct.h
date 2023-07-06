@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/05 12:49:07 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/06 10:47:35 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ struct	s_render{
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	int		mapy;
+	int		mapx;
 	double	mv_speed;
 	double	rt_speed;
 	double	neg_rt;
@@ -80,8 +82,6 @@ struct	s_render{
 	double	old_time;
 	double	ray_dirx;
 	double	ray_diry;
-	int		map_x;
-	int		map_y;
 	double	delta_x;
 	double	delta_y;
 	int		hit;
