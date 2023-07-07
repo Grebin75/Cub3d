@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/06 10:47:35 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/07 11:56:25 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ struct s_view{
 
 struct	s_data {
 	void	*img;
-	int	*addr;
+	int		*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
@@ -67,30 +67,36 @@ struct	s_data {
 };
 
 struct	s_render{
+	double	cam_x;
 	double	ply_x;
 	double	ply_y;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
 	double	plane_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int		stepx;
+	int		stepy;
+	int		hit;
+	int		side;
 	int		mapy;
 	int		mapx;
 	double	mv_speed;
 	double	rt_speed;
 	double	neg_rt;
-	double	time;
-	double	old_time;
 	double	ray_dirx;
 	double	ray_diry;
 	double	delta_x;
 	double	delta_y;
-	int		hit;
+	double	wall_dist;
+	int		lineheight;
+	int		draw_start;
+	int		draw_end;
 	int		img_height;
 	int		img_width;
 	int		buffer[GAME_HEIGHT][GAME_WIDTH];
 	int		re_buffer;
-	int		copy_dirx;
-	int		copy_diry;
 	t_img	*image;
 };
 

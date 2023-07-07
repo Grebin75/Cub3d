@@ -8,12 +8,8 @@ void	init_vars(t_game *game, t_render *render)
 	render->img_width = 64;
 	render->dir_x = -1;
 	render->dir_y = 0;
-	render->copy_dirx = render->dir_x;
-	render->copy_diry = render->dir_y;
 	render->plane_x = 0;
 	render->plane_y = 0.66;
-	render->time = 0;
-	render->old_time = 0;
 	render->hit = 0;
 	render->mv_speed = 0.05;
 	render->rt_speed = 0.05;
