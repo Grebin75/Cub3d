@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/07 11:56:25 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/10 11:44:05 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # define GAME_WIDTH 640
 # define GAME_HEIGHT 480
+# define PI 3.14159265359
 
 typedef struct s_cub	t_cub;
 typedef struct s_game	t_game;
@@ -70,6 +71,8 @@ struct	s_render{
 	double	cam_x;
 	double	ply_x;
 	double	ply_y;
+	double	cpy_x;
+	double	cpy_y;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
@@ -93,10 +96,17 @@ struct	s_render{
 	int		lineheight;
 	int		draw_start;
 	int		draw_end;
+	double	wall_x;
+	int		texture_x;
+	int		texture_y;
+	double	step;
+	double	texture_position;
 	int		img_height;
 	int		img_width;
 	int		buffer[GAME_HEIGHT][GAME_WIDTH];
 	int		re_buffer;
+	double	ply_angle;
+	int		texture_number;
 	t_img	*image;
 };
 

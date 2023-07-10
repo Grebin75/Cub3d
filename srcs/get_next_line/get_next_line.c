@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:45:25 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/05/16 11:43:58 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/10 12:29:46 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = NULL;
 	while (1)
-	{		
+	{
 		re = 1;
 		if (!buffer[0])
 			re = read(fd, buffer, BUFFER_SIZE);

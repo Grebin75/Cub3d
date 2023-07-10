@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabriel <gabriel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:44:00 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/28 09:13:43 by gabriel          ###   ########.fr       */
+/*   Updated: 2023/07/10 12:30:17 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	print_cub(t_cub *cub)
 	int	i;
 
 	i = -1;
-
 	if (cub->no_texture)
 		printf("NORTH: %s\n", cub->no_texture);
 	if (cub->so_texture)
@@ -51,20 +50,18 @@ void	print_cub(t_cub *cub)
 		printf("WEST: %s\n", cub->we_texture);
 	if (cub->ea_texture)
 		printf("EAST: %s\n", cub->ea_texture);
-
 	if (cub->floor)
 		printf("FLOOR: %s\n", cub->floor);
 	if (cub->ceiling)
 		printf("CEILING: %s\n", cub->ceiling);
-
 	printf("MAP:\n");
 	while (cub->map && cub->map[++i])
 		printf("%s\n", cub->map[i]);
 }
 
-t_cub *this()
+t_cub	*this(void)
 {
 	static t_cub	cub;
-	
+
 	return (&cub);
 }

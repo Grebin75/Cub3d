@@ -14,7 +14,8 @@ static void	load_images(int *text, char *path, t_render *render, t_game *game)
 	{
 		y = -1;
 		while (++y < render->img_width)
-			text[render->img_width * x + y] = data()->addr[render->img_width * x + y];
+			text[render->img_width * x + y] = \
+			data()->addr[render->img_width * x + y];
 	}
 	mlx_destroy_image(game->mlx, data()->img);
 }

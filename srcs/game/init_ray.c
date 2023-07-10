@@ -30,7 +30,7 @@ static void	init_dda_calc(t_render *render)
 
 void	init_ray(t_render *render, t_game *game, int x)
 {
-	render->cam_x = ((2 * x) / (double)(game->win_height) - 1);
+	render->cam_x = ((2 * x) / (double)(game->win_width) - 1);
 	render->ray_dirx = render->dir_x + render->plane_x * render->cam_x;
 	render->ray_diry = render->dir_y + render->plane_y * render->cam_x;
 	render->mapx = (int)render->ply_x;
@@ -60,12 +60,30 @@ void	find_hit_wall(t_render *render, t_cub *cub)
 
 void	draw_size(t_render *render, t_game *game)
 {
+	int	degree;
+
 	if (render->side == 0)
-		render->wall_dist = (render->mapx - render->ply_x + (\
-		1 - render->stepx) / 2) / render->ray_dirx;
+	{
+		degree = atan2(render->dir_x, render->dir_y) * 180 / PI;
+		if (degree < 0)
+			degree += 360;
+		if (degree < 180)
+			render->texture_number = 0;
+		else
+			render->texture_number = 1;
+		render->wall_dist = (render->side_dist_x - render->delta_x);
+	}
 	else
-		render->wall_dist = (render->mapy - render->ply_y + \
-		(1 - render->stepy) / 2) / render->ray_diry;
+	{
+		degree = atan2(render->dir_y, render->dir_x) * 180 / PI;
+		if (degree < 0)
+			degree += 360;
+		if (degree > 180)
+			render->texture_number = 2;
+		else
+			render->texture_number = 3;
+		render->wall_dist = (render->side_dist_y - render->delta_y);
+	}
 	render->lineheight = (int)(game->win_height / render->wall_dist);
 	render->draw_start = ((-render->lineheight / 2) + (game->win_height / 2));
 	if (render->draw_start < 0)
@@ -73,4 +91,13 @@ void	draw_size(t_render *render, t_game *game)
 	render->draw_end = ((render->lineheight / 2) + (game->win_height / 2));
 	if (render->draw_end >= game->win_height)
 		render->draw_end = game->win_height - 1;
+}
+
+void	save_draw_numbers(t_render *render)
+{
+	if (render->side == 0)
+		render->wall_x = render->ply_y + render->wall_dist * render->ray_diry;
+	else
+		render->wall_x = render->ply_x + render->wall_dist * render->ray_dirx;
+	render->wall_x -= floor(render->wall_x);
 }

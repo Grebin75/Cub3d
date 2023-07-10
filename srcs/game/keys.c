@@ -5,10 +5,10 @@ static void	key_ws(t_render *render, int keycode)
 	if (keycode == 119)
 	{
 		if (this()->map[(int)(render->ply_y + render->dir_x \
-		* render->mv_speed)][(int)render->ply_x])
+		* render->mv_speed)][(int)render->ply_x] != '1')
 			render->ply_x += render->dir_x * render->mv_speed;
 		if (this()->map[(int)render->ply_y][(int)(render->ply_x \
-		+ render->dir_y * render->mv_speed)])
+		+ render->dir_y * render->mv_speed)] != '1')
 			render->ply_y += render->dir_y * render->mv_speed;
 	}
 	if (keycode == 115)

@@ -14,6 +14,8 @@ void	init_vars(t_game *game, t_render *render)
 	render->mv_speed = 0.05;
 	render->rt_speed = 0.05;
 	render->neg_rt = -0.05;
+	render->cpy_x = render->ply_x;
+	render->cpy_y = render->ply_y;
 }
 
 t_game	*game(void)
