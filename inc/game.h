@@ -18,5 +18,6 @@ void		init_ray(t_render *render, t_game *game, int x);
 void		find_hit_wall(t_render *render, t_cub *cub);
 void		save_draw_numbers(t_render *render);
 void		textures_wall(t_render *render, t_game *game, int x);
+void		define_colors(t_render *render);
 
 #endif

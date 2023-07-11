@@ -43,6 +43,8 @@ int	check_map(t_cub *cub, t_render *render)
 			{
 				render->ply_x = j;
 				render->ply_y = i;
+				render->angle = 0 + (90 * (cub->map[i][j] == 'W')) + (180 * \
+				(cub->map[i][j] == 'S')) + (270 * (cub->map[i][j] == 'E'));
 			}
 		}
 	}

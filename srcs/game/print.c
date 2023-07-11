@@ -1,5 +1,32 @@
 #include "cub3d.h"
 
+void	define_colors(t_render *render)
+{
+
+	if (render->side == 0)
+	{
+		render->angle = atan2(render->dir_x, render->dir_y) * 180 / PI;
+		if (render->angle < 0)
+			render->angle += 360;
+		if (render->angle < 180)
+			render->texture_number = 0; //parede azul
+		else
+			render->texture_number = 1; //parede colorida
+		render->wall_dist = (render->side_dist_x - render->delta_x);
+	}
+	else
+	{
+		render->angle = atan2(render->dir_y, render->dir_x) * 180 / PI;
+		if (render->angle < 0)
+			render->angle += 360;
+		if (render->angle > 180)
+			render->texture_number = 2; //parede vermelha
+		else
+			render->texture_number = 3; //parede cinza
+		render->wall_dist = (render->side_dist_y - render->delta_y);
+	}
+}
+
 static int	print_walls(int texture_y, int texture_x, int text_number)
 {
 	int	color;
@@ -20,7 +47,9 @@ void	textures_wall(t_render *render, t_game *game, int x)
 	if (render->side == 0 && render->ray_dirx > 0)
 		render->texture_x = render->img_width - render->texture_x - 1;
 	if (render->side == 1 && render->ray_diry < 0)
+	{
 		render->texture_x = render->img_width - render->texture_x - 1;
+	}
 	render->step = 1.0 * render->img_height / render->lineheight;
 	render->texture_position = (render->draw_start - game->win_height / 2 + \
 	render->lineheight / 2) * render->step;
