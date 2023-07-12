@@ -2,7 +2,8 @@
 
 static void	print_walls(t_render *render, int x, int y)
 {
-	if (render->side == 0)
+	if (render->side == 0 && \
+	this()->map[render->mapy][render->mapx] == '1')
 	{
 		if (render->mapx < render->ply_x)
 			render->buffer[y][x] = game()->img[3] \
@@ -11,7 +12,8 @@ static void	print_walls(t_render *render, int x, int y)
 			render->buffer[y][x] = game()->img[2] \
 			[render->img_height * render->texture_y + render->texture_x];
 	}
-	else if (render->side == 1)
+	else if (render->side == 1 && \
+	this()->map[render->mapy][render->mapx] == '1')
 	{
 		if (render->mapy < render->ply_y)
 			render->buffer[y][x] = game()->img[0] \
@@ -20,6 +22,8 @@ static void	print_walls(t_render *render, int x, int y)
 			render->buffer[y][x] = game()->img[1] \
 			[render->img_height * render->texture_y + render->texture_x];
 	}
+	if (this()->map[render->mapy][render->mapx] == '0')
+		render->buffer[y][x] = 0;
 }
 
 void	textures_wall(t_render *render, t_game *game, int x)
@@ -64,16 +68,14 @@ void	cls(void)
 {
 	int			x;
 	int			y;
-	t_game		game;
-	t_render	render;
 
-	x = -1;
-	while (++x < game.win_width)
+	y = -1;
+	while (++y < game()->win_height)
 	{
-		y = -1;
-		while (++y < game.win_height)
+		x = -1;
+		while (++x < game()->win_width)
 		{
-			render.buffer[x][y] = 0;
+			data()->addr[y * game()->win_width + x] = 0x000000;
 		}
 	}
 }
