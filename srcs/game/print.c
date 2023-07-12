@@ -1,55 +1,36 @@
 #include "cub3d.h"
 
-void	define_colors(t_render *render)
+static void	print_walls(t_render *render, int x, int y)
 {
-
 	if (render->side == 0)
 	{
-		render->angle = atan2(render->dir_x, render->dir_y) * 180 / PI;
-		if (render->angle < 0)
-			render->angle += 360;
-		if (render->angle < 180)
-			render->texture_number = 0; //parede azul
+		if (render->mapx < render->ply_x)
+			render->buffer[y][x] = game()->img[3] \
+			[render->img_height * render->texture_y + render->texture_x];
 		else
-			render->texture_number = 1; //parede colorida
-		render->wall_dist = (render->side_dist_x - render->delta_x);
+			render->buffer[y][x] = game()->img[2] \
+			[render->img_height * render->texture_y + render->texture_x];
 	}
-	else
+	else if (render->side == 1)
 	{
-		render->angle = atan2(render->dir_y, render->dir_x) * 180 / PI;
-		if (render->angle < 0)
-			render->angle += 360;
-		if (render->angle > 180)
-			render->texture_number = 2; //parede vermelha
+		if (render->mapy < render->ply_y)
+			render->buffer[y][x] = game()->img[0] \
+			[render->img_height * render->texture_y + render->texture_x];
 		else
-			render->texture_number = 3; //parede cinza
-		render->wall_dist = (render->side_dist_y - render->delta_y);
+			render->buffer[y][x] = game()->img[1] \
+			[render->img_height * render->texture_y + render->texture_x];
 	}
-}
-
-static int	print_walls(int texture_y, int texture_x, int text_number)
-{
-	int	color;
-
-	if (this()->map[render()->mapy][render()->mapx] == '1')
-		color = game()->img[text_number] \
-		[render()->img_height * texture_y + texture_x];
-	else
-		color = 0;
-	return (color);
 }
 
 void	textures_wall(t_render *render, t_game *game, int x)
 {
 	int	y;
 
-	render->texture_x = (int)(render->wall_x * (double)render->img_width);
+	render->texture_x = (int)(render->wall_x * render->img_width);
 	if (render->side == 0 && render->ray_dirx > 0)
 		render->texture_x = render->img_width - render->texture_x - 1;
 	if (render->side == 1 && render->ray_diry < 0)
-	{
 		render->texture_x = render->img_width - render->texture_x - 1;
-	}
 	render->step = 1.0 * render->img_height / render->lineheight;
 	render->texture_position = (render->draw_start - game->win_height / 2 + \
 	render->lineheight / 2) * render->step;
@@ -59,8 +40,7 @@ void	textures_wall(t_render *render, t_game *game, int x)
 		render->texture_y = (int)render->texture_position & \
 		(render->img_height - 1);
 		render->texture_position += render->step;
-		(render->buffer[y][x]) = print_walls(render->texture_y, \
-		render->texture_x, render->texture_number);
+		print_walls(render, x, y);
 		y++;
 	}
 }
@@ -92,6 +72,8 @@ void	cls(void)
 	{
 		y = -1;
 		while (++y < game.win_height)
+		{
 			render.buffer[x][y] = 0;
+		}
 	}
 }
