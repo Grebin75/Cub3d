@@ -2,39 +2,51 @@
 
 static void	key_ws(t_render *render, int keycode)
 {
+	double	tmp_x;
+	double	tmp_y;
+
+	tmp_x = 0;
+	tmp_y = 0;
 	if (keycode == 119)
 	{
-		if (this()->map[(int)(render->ply_y + render->dir_x \
-		* render->mv_speed)][(int)render->ply_x] != '1')
-			render->ply_x += render->dir_x * render->mv_speed;
-		if (this()->map[(int)render->ply_y][(int)(render->ply_x \
-		+ render->dir_y * render->mv_speed)] != '1')
-			render->ply_y += render->dir_y * render->mv_speed;
+		tmp_x = render->ply_x + render->dir_x * render->mv_speed;
+		tmp_y = render->ply_y + render->dir_y * render->mv_speed;
 	}
 	if (keycode == 115)
 	{
-		if (this()->map[(int)(render->ply_y - render->dir_x \
-		* render->mv_speed)][(int)render->ply_x] != '1')
-			render->ply_x -= render->dir_x * render->mv_speed;
-		if (this()->map[(int)render->ply_y][(int)(render->ply_x \
-		- render->dir_y * render->mv_speed)] != '1')
-			render->ply_y -= render->dir_y * render->mv_speed;
+		tmp_x = render->ply_x - render->dir_x * render->mv_speed;
+		tmp_y = render->ply_y - render->dir_y * render->mv_speed;
+	}
+	if (this()->map[(int)tmp_y][(int)tmp_x] != '1')
+	{
+		printf("%f\n%f\n", tmp_x, tmp_y);
+		render->ply_x = tmp_x;
+		render->ply_y = tmp_y;
 	}
 }
 
 static void	key_ad(t_render *render, int keycode)
 {
+	double	tmp_x;
+	double	tmp_y;
+
+	tmp_x = 0;
+	tmp_y = 0;
 	if (keycode == 97)
 	{
-		if (this()->map[(int)render->ply_y][(int)(render->ply_x \
-		- render->dir_y * render->mv_speed)] != '1')
-			render->ply_x -= render->dir_y * render->mv_speed;
+		tmp_x = render->ply_x + render->dir_x * render->mv_speed;
+		tmp_y = render->ply_y + render->dir_y * render->mv_speed;
 	}
-	if (keycode == 100)
+	else if (keycode == 100)
 	{
-		if (this()->map[(int)render->ply_y][(int)(render->ply_x \
-		+ render->dir_y * render->mv_speed)] != '1')
-			render->ply_x += render->dir_y * render->mv_speed;
+		tmp_x = render->ply_x - render->dir_x * render->mv_speed;
+		tmp_y = render->ply_y - render->dir_y * render->mv_speed;
+	}
+	if (this()->map[(int)tmp_y][(int)tmp_x] != '1')
+	{
+		printf("%f\n%f\n", tmp_x, tmp_y);
+		render->ply_x = tmp_x;
+		render->ply_y = tmp_y;
 	}
 }
 
@@ -43,7 +55,7 @@ static void	rotate(t_render *render, int keycode)
 	double	old_dir;
 	double	old_plane;
 
-	if (keycode == 65363)
+	if (keycode == 65363 && render->angle == 0)
 	{
 		old_dir = render->dir_x;
 		render->dir_x = (render->dir_x * cos(render->neg_rt)) \

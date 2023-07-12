@@ -1,5 +1,13 @@
 #include "cub3d.h"
 
+static void	floor_ceiling(t_render *render, int x, int y)
+{
+	if (this()->map[render->mapy][render->mapx] == '0' && y < game()->win_height / 2)
+		render->buffer[y][x] = 0x0000FF;
+	else if (this()->map[render->mapy][render->mapx] == '0' && y < game()->win_height * 2)
+		render->buffer[y][x] = 0xFFFF00;
+}
+
 static void	print_walls(t_render *render, int x, int y)
 {
 	if (render->side == 0 && \
@@ -22,8 +30,7 @@ static void	print_walls(t_render *render, int x, int y)
 			render->buffer[y][x] = game()->img[1] \
 			[render->img_height * render->texture_y + render->texture_x];
 	}
-	if (this()->map[render->mapy][render->mapx] == '0')
-		render->buffer[y][x] = 0;
+	floor_ceiling(render, x, y);
 }
 
 void	textures_wall(t_render *render, t_game *game, int x)

@@ -38,8 +38,6 @@ void	init_ray(t_render *render, t_game *game, int x)
 	render->mapy = (int)render->ply_y;
 	render->delta_x = fabs(1 / render->ray_dirx);
 	render->delta_y = fabs(1 / render->ray_diry);
-	if (render->angle == 0)
-		printf("TESTE\n");
 	init_dda_calc(render);
 }
 
