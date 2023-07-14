@@ -49,7 +49,7 @@ static void	key_ad(t_render *render, int keycode)
 	}
 }
 
-static void	rotate_left(t_render *render)
+static void	rotate_a(t_render *render)
 {
 	double	old_dir;
 	double	old_plane;
@@ -66,12 +66,11 @@ static void	rotate_left(t_render *render)
 	+ render->plane_y * cos(-render->rt_speed);
 }
 
-static void	rotate_right(t_render *render)
+static void	rotate_d(t_render *render)
 {
 	double	old_dir;
 	double	old_plane;
 
-	printf("TESTE\n");
 	old_dir = render->dir_x;
 	render->dir_x = render->dir_x * cos(render->rt_speed) \
 	- render->dir_y * sin(render->rt_speed);
@@ -90,29 +89,19 @@ int	movement_keys(int keycode)
 		key_ws(render(), keycode);
 	if (keycode == 97 || keycode == 100)
 		key_ad(render(), keycode);
-	if (keycode == 65363)
-		rotate_right (render());
-	if (keycode == 65361)
-		rotate_left (render());
-	return (0);
-}
-
-int	close_keys(int keycode)
-{
-	if (keycode == 65363 || keycode == 65361 || \
-	keycode == 115 || keycode == 119 || keycode == 100 || keycode == 97)
-		movement_keys(keycode);
-	if (keycode == 65307)
+	if (render()->angle == 180 || render()->angle == 90)
 	{
-		printf("You closed the game.\n");
-		rm_cub(this());
+		if (keycode == 65361)
+			rotate_d (render());
+		else if (keycode == 65363)
+			rotate_a (render());
 	}
-	return (1);
-}
-
-int	button_exit(void)
-{
-	printf("You closed the game.\n");
-	rm_cub(this());
+	else if (render()->angle == 0 || render()->angle == 270)
+	{
+		if (keycode == 65361)
+			rotate_a (render());
+		else if (keycode == 65363)
+			rotate_d (render());
+	}
 	return (0);
 }

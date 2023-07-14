@@ -20,17 +20,16 @@ static void	print_walls(t_render *render, int x, int y)
 			[render->img_height * render->texture_y + render->texture_x];
 		else
 			render->buffer[y][x] = game()->img[2] \
-			[render->img_height * render->texture_y + render->texture_x]; //erro aqui
+			[render->img_height * render->texture_y + render->texture_x];
 	}
-	else if (render->side == 1 && \
-	this()->map[render->mapy][render->mapx] == '1')
+	else if (render->side == 1)
 	{
 		if (render->mapy < render->ply_y)
 			render->buffer[y][x] = game()->img[0] \
 			[render->img_height * render->texture_y + render->texture_x];
 		else if (render->mapy >= render->ply_y)
 			render->buffer[y][x] = game()->img[1] \
-			[render->img_height * render->texture_y + render->texture_x]; //erro aqui
+			[render->img_height * render->texture_y + render->texture_x];
 	}
 	floor_ceiling(render, x, y);
 }
@@ -84,7 +83,8 @@ void	cls(void)
 		x = -1;
 		while (++x < game()->win_width)
 		{
-			data()->addr[y * game()->win_width + x] = 0x000000;
+			data()->addr[y * game()->win_width + x] = render()->buffer[y][x];
 		}
 	}
+	mlx_put_image_to_window(game()->mlx, game()->mlx_win, data()->img, 0, 0);
 }

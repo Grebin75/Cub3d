@@ -6,6 +6,7 @@ SRCS		= $(SRCS_DIR)/main.c \
 				$(SRCS_DIR)/parse/check_closed.c \
 				$(SRCS_DIR)/parse/check_map.c \
 				$(SRCS_DIR)/game/init_ray.c \
+				$(SRCS_DIR)/game/keys_start.c \
 				$(SRCS_DIR)/game/keys.c \
 				$(SRCS_DIR)/game/render.c \
 				$(SRCS_DIR)/game/print.c \
