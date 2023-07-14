@@ -19,7 +19,6 @@ static void	key_ws(t_render *render, int keycode)
 	}
 	if (this()->map[(int)tmp_y][(int)tmp_x] != '1')
 	{
-		printf("%f\n%f\n", tmp_x, tmp_y);
 		render->ply_x = tmp_x;
 		render->ply_y = tmp_y;
 	}
@@ -50,37 +49,39 @@ static void	key_ad(t_render *render, int keycode)
 	}
 }
 
-static void	rotate(t_render *render, int keycode)
+static void	rotate_left(t_render *render)
 {
 	double	old_dir;
 	double	old_plane;
 
-	if (keycode == 65363 && render->angle == 0)
-	{
-		old_dir = render->dir_x;
-		render->dir_x = (render->dir_x * cos(render->neg_rt)) \
-		- (render->dir_y * sin(render->neg_rt));
-		render->dir_y = old_dir * sin(render->neg_rt) \
-		+ render->dir_y * cos(render->neg_rt);
-		old_plane = render->plane_x;
-		render->plane_x = render->plane_x * cos(render->neg_rt) \
-		- render->plane_y * sin(render->neg_rt);
-		render->plane_y = old_plane * sin(render->neg_rt) \
-		+ render->plane_y * cos(render->neg_rt);
-	}
-	else if (keycode == 65361)
-	{
-		old_dir = render->dir_x;
-		render->dir_x = render->dir_x * cos(render->rt_speed) \
-		- render->dir_y * sin(render->rt_speed);
-		render->dir_y = old_dir * sin(render->rt_speed) \
-		+ render->dir_y * cos(render->rt_speed);
-		old_plane = render->plane_x;
-		render->plane_x = render->plane_x * cos(render->rt_speed) \
-		- render->plane_y * sin(render->rt_speed);
-		render->plane_y = old_plane * sin(render->rt_speed) \
-		+ render->plane_y * cos(render->rt_speed);
-	}
+	old_dir = render->dir_x;
+	render->dir_x = (render->dir_x * cos(-render->rt_speed)) \
+	- (render->dir_y * sin(-render->rt_speed));
+	render->dir_y = old_dir * sin(-render->rt_speed) \
+	+ render->dir_y * cos(-render->rt_speed);
+	old_plane = render->plane_x;
+	render->plane_x = render->plane_x * cos(-render->rt_speed) \
+	- render->plane_y * sin(-render->rt_speed);
+	render->plane_y = old_plane * sin(-render->rt_speed) \
+	+ render->plane_y * cos(-render->rt_speed);
+}
+
+static void	rotate_right(t_render *render)
+{
+	double	old_dir;
+	double	old_plane;
+
+	printf("TESTE\n");
+	old_dir = render->dir_x;
+	render->dir_x = render->dir_x * cos(render->rt_speed) \
+	- render->dir_y * sin(render->rt_speed);
+	render->dir_y = old_dir * sin(render->rt_speed) \
+	+ render->dir_y * cos(render->rt_speed);
+	old_plane = render->plane_x;
+	render->plane_x = render->plane_x * cos(render->rt_speed) \
+	- render->plane_y * sin(render->rt_speed);
+	render->plane_y = old_plane * sin(render->rt_speed) \
+	+ render->plane_y * cos(render->rt_speed);
 }
 
 int	movement_keys(int keycode)
@@ -89,8 +90,10 @@ int	movement_keys(int keycode)
 		key_ws(render(), keycode);
 	if (keycode == 97 || keycode == 100)
 		key_ad(render(), keycode);
-	if (keycode == 65363 || keycode == 65361)
-		rotate (render(), keycode);
+	if (keycode == 65363)
+		rotate_right (render());
+	if (keycode == 65361)
+		rotate_left (render());
 	return (0);
 }
 

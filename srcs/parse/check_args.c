@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/30 11:45:46 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/14 10:36:29 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	check_colour(char *colour)
 {
 	int	i;
 	int	ncount;
-	int n;
-	int rgb[3];
+	int	n;
+	int	rgb[3];
 
 	i = 0;
 	ncount = -1;
@@ -70,9 +70,10 @@ int	check_colour(char *colour)
 			print_error("Colour have a invalid number\n");
 		rgb[++ncount] = n;
 		i += numlen(n);
-		if ((colour[++i] && (colour[i] != ',' || ncount == 2)) || (!colour[i] && ncount < 2))
+		if ((colour[++i] && (colour[i] != ',' \
+		|| ncount == 2)) || (!colour[i] && ncount < 2))
 			print_error("Invalid colour format, try x,x,y\n");
 		i++;
 	}
-	return (255 << 24 | rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
+	return (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }

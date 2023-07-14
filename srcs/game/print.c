@@ -2,10 +2,12 @@
 
 static void	floor_ceiling(t_render *render, int x, int y)
 {
-	if (this()->map[render->mapy][render->mapx] == '0' && y < game()->win_height / 2)
-		render->buffer[y][x] = 0x0000FF;
-	else if (this()->map[render->mapy][render->mapx] == '0' && y < game()->win_height * 2)
-		render->buffer[y][x] = 0xFFFF00;
+	if (this()->map[render->mapy][render->mapx] \
+	== '0' && y < game()->win_height / 2)
+		render->buffer[y][x] = render->ceiling_text;
+	else if (this()->map[render->mapy][render->mapx] \
+	== '0' && y < game()->win_height * 2)
+		render->buffer[y][x] = render->floor_text;
 }
 
 static void	print_walls(t_render *render, int x, int y)
@@ -18,7 +20,7 @@ static void	print_walls(t_render *render, int x, int y)
 			[render->img_height * render->texture_y + render->texture_x];
 		else
 			render->buffer[y][x] = game()->img[2] \
-			[render->img_height * render->texture_y + render->texture_x];
+			[render->img_height * render->texture_y + render->texture_x]; //erro aqui
 	}
 	else if (render->side == 1 && \
 	this()->map[render->mapy][render->mapx] == '1')
@@ -26,9 +28,9 @@ static void	print_walls(t_render *render, int x, int y)
 		if (render->mapy < render->ply_y)
 			render->buffer[y][x] = game()->img[0] \
 			[render->img_height * render->texture_y + render->texture_x];
-		else
+		else if (render->mapy >= render->ply_y)
 			render->buffer[y][x] = game()->img[1] \
-			[render->img_height * render->texture_y + render->texture_x];
+			[render->img_height * render->texture_y + render->texture_x]; //erro aqui
 	}
 	floor_ceiling(render, x, y);
 }

@@ -14,13 +14,8 @@ void	init_vars(t_game *game, t_render *render)
 	render->mv_speed = 0.05;
 	render->rt_speed = 0.05;
 	render->neg_rt = -0.05;
-	render->cpy_x = render->ply_x;
-	render->cpy_y = render->ply_y;
-	render->cpy_map_x = (int)render->ply_x;
-	render->cpy_map_y = (int)render->ply_y;
-	for (int i = 0; i < game->win_width; i++)
-		for (int j = 0; j < game->win_height; j++)
-			render->buffer[j][i] = 0;
+	render->ceiling_text = check_colour(this()->ceiling);
+	render->floor_text = check_colour(this()->floor);
 }
 
 t_game	*game(void)

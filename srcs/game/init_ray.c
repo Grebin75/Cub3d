@@ -34,8 +34,8 @@ void	init_ray(t_render *render, t_game *game, int x)
 	render->cam_x = ((2 * x) / (double)(game->win_width) - 1);
 	render->ray_dirx = render->dir_x + render->plane_x * render->cam_x;
 	render->ray_diry = render->dir_y + render->plane_y * render->cam_x;
-	render->mapx = (int)render->ply_x;
-	render->mapy = (int)render->ply_y;
+	render->mapx = (int)render->ply_x + 0.5;
+	render->mapy = (int)render->ply_y + 0.5;
 	render->delta_x = fabs(1 / render->ray_dirx);
 	render->delta_y = fabs(1 / render->ray_diry);
 	init_dda_calc(render);
