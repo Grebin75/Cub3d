@@ -10,12 +10,10 @@ void	rendering(void)
 		init_ray(render(), game(), x);
 		render()->hit = 0;
 		while (render()->hit == 0)
-		{
 			find_hit_wall(render(), this());
-			draw_size(render(), game());
-			save_draw_numbers(render());
-			textures_wall(render(), game(), x);
-		}
+		draw_size(render(), game());
+		save_draw_numbers(render());
+		textures_wall(render(), game(), x);
 	}
 }
 

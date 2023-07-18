@@ -11,7 +11,7 @@ static void	init_dda_calc(t_render *render)
 	else
 	{
 		render->stepx = 1;
-		render->side_dist_x = ((render->mapx + 1.0 - (render->ply_x + 0.5)) \
+		render->side_dist_x = ((render->mapx + 1.0 - (render->ply_x - 0.1)) \
 		* render->delta_x);
 	}
 	if (render->ray_diry < 0)
@@ -23,7 +23,7 @@ static void	init_dda_calc(t_render *render)
 	else
 	{
 		render->stepy = 1;
-		render->side_dist_y = ((render->mapy + 1.0 - (render->ply_y + 0.5)) \
+		render->side_dist_y = ((render->mapy + 1.0 - (render->ply_y - 0.1)) \
 		* render->delta_y);
 	}
 }
@@ -80,7 +80,7 @@ void	save_draw_numbers(t_render *render)
 		render->wall_x = (render->ply_y + 0.5) + \
 		render->wall_dist * render->ray_diry;
 	else
-		render->wall_x = (render->ply_x + 0.5) + \
+		render->wall_x = (render->ply_x) + \
 		render->wall_dist * render->ray_dirx;
 	render->wall_x -= floor(render->wall_x);
 }
