@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/14 10:30:47 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/18 09:53:56 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ struct	s_data {
 };
 
 struct	s_render{
+	int		x;
 	double	cam_x;
 	double	ply_x;
 	double	ply_y;

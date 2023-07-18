@@ -10,10 +10,8 @@ void	init_vars(t_game *game, t_render *render)
 	render->dir_y = (-1 * (render->angle == 0)) + (render->angle == 180);
 	render->plane_y = 0.66 * ((render->angle == 270)) + (render->angle == 90);
 	render->plane_x = 0.66 * ((render->angle == 0)) + (render->angle == 180);
-	render->hit = 0;
 	render->mv_speed = 0.05;
 	render->rt_speed = 0.05;
-	render->neg_rt = -0.05;
 	render->ceiling_text = check_colour(this()->ceiling);
 	render->floor_text = check_colour(this()->floor);
 }

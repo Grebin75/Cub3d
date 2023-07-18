@@ -2,7 +2,7 @@
 
 void	rendering(void)
 {
-	int		x;
+	int	x;
 
 	x = -1;
 	while (++x < game()->win_width)
@@ -22,5 +22,12 @@ int	start_game(void)
 	cls();
 	rendering();
 	vertical_line(game(), render(), data());
+	for(int y = 0; y < game()->win_height; y++) 
+	{
+		for(int x = 0; x < game()->win_width; x++) 
+		{
+			render()->buffer[y][x] = 0;
+		}
+	}
 	return (0);
 }

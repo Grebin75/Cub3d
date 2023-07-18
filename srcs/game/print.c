@@ -3,8 +3,11 @@
 static void	floor_ceiling(t_render *render, int x, int y)
 {
 	if (this()->map[render->mapy][render->mapx] \
-	!= '1' && y < game()->win_height / 2)
+	== '0' && y < game()->win_height / 2)
+	{
+	printf("ENTROU\n");
 		render->buffer[y][x] = render->ceiling_text;
+	}
 	else if (this()->map[render->mapy][render->mapx] \
 	!= '1' && y < game()->win_height * 2)
 		render->buffer[y][x] = render->floor_text;
@@ -22,7 +25,8 @@ static void	print_walls(t_render *render, int x, int y)
 			render->buffer[y][x] = game()->img[2] \
 			[render->img_height * render->texture_y + render->texture_x];
 	}
-	else if (render->side == 1 && this()->map[render->mapy][render->mapx] == '1')
+	else if (render->side == 1 && \
+	this()->map[render->mapy][render->mapx] == '1')
 	{
 		if (render->mapy < render->ply_y)
 			render->buffer[y][x] = game()->img[0] \
@@ -31,6 +35,7 @@ static void	print_walls(t_render *render, int x, int y)
 			render->buffer[y][x] = game()->img[1] \
 			[render->img_height * render->texture_y + render->texture_x];
 	}
+	floor_ceiling(render, x, y);
 }
 
 void	textures_wall(t_render *render, t_game *game, int x)
@@ -53,8 +58,6 @@ void	textures_wall(t_render *render, t_game *game, int x)
 		render->texture_position += render->step;
 		print_walls(render, x, y);
 		y++;
-		floor_ceiling(render, x, y);
-
 	}
 }
 
@@ -71,13 +74,6 @@ void	vertical_line(t_game *game, t_render *render, t_data *data)
 			data->addr[y * game->win_width + x] = render->buffer[y][x];
 	}
 	mlx_put_image_to_window(game->mlx, game->mlx_win, data->img, 0, 0);
-	for(int y = 0; y < game->win_height; y++) 
-	{
-		for(int x = 0; x < game->win_width; x++) 
-		{
-			render->buffer[y][x] = 0;
-		}
-	}
 }
 
 void	cls(void)
@@ -94,5 +90,5 @@ void	cls(void)
 			data()->addr[y * game()->win_width + x] = 0x000000;
 		}
 	}
-	// mlx_put_image_to_window(game()->mlx, game()->mlx_win, data()->img, 0, 0);
+	mlx_put_image_to_window(game()->mlx, game()->mlx_win, data()->img, 0, 0);
 }

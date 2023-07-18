@@ -5,7 +5,7 @@ static void	init_dda_calc(t_render *render)
 	if (render->ray_dirx < 0)
 	{
 		render->stepx = -1;
-		render->side_dist_x = (((render->ply_x + 0.5) - render->mapx) \
+		render->side_dist_x = (((render->ply_x + 0.1) - render->mapx) \
 		* render->delta_x);
 	}
 	else
@@ -17,7 +17,7 @@ static void	init_dda_calc(t_render *render)
 	if (render->ray_diry < 0)
 	{
 		render->stepy = -1;
-		render->side_dist_y = (((render->ply_y + 0.5) - render->mapy) \
+		render->side_dist_y = (((render->ply_y + 0.1) - render->mapy) \
 		* render->delta_y);
 	}
 	else
@@ -34,8 +34,8 @@ void	init_ray(t_render *render, t_game *game, int x)
 	render->cam_x = ((2 * x) / (double)(game->win_width) - 1);
 	render->ray_dirx = render->dir_x + render->plane_x * render->cam_x;
 	render->ray_diry = render->dir_y + render->plane_y * render->cam_x;
-	render->mapx = (int)render->ply_x + 0.5;
-	render->mapy = (int)render->ply_y + 0.5;
+	render->mapx = (int)render->ply_x ;
+	render->mapy = (int)render->ply_y;
 	render->delta_x = fabs(1 / render->ray_dirx);
 	render->delta_y = fabs(1 / render->ray_diry);
 	init_dda_calc(render);
@@ -77,7 +77,7 @@ void	draw_size(t_render *render, t_game *game)
 void	save_draw_numbers(t_render *render)
 {
 	if (render->side == 0)
-		render->wall_x = (render->ply_y + 0.5) + \
+		render->wall_x = (render->ply_y) + \
 		render->wall_dist * render->ray_diry;
 	else
 		render->wall_x = (render->ply_x) + \
