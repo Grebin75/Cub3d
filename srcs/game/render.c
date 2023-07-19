@@ -1,5 +1,29 @@
 #include "cub3d.h"
 
+static void	draw_back(t_game *game)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (y < game->win_height)
+	{
+		x = 0;
+		while (y < game->win_height / 2 && x < game->win_width)
+		{
+			render()->buffer[y][x] = 0x1e5d6a;
+			x++;
+		}
+		x = 0;
+		while (y > game->win_height / 2 && x < game->win_width)
+		{
+			render()->buffer[y][x] = 0x91938a;
+			x++;
+		}
+		y++;
+	}
+}
+
 void	rendering(void)
 {
 	int	x;
@@ -19,15 +43,8 @@ void	rendering(void)
 
 int	start_game(void)
 {
-	cls();
+	draw_back(game());
 	rendering();
 	vertical_line(game(), render(), data());
-	for(int y = 0; y < game()->win_height; y++) 
-	{
-		for(int x = 0; x < game()->win_width; x++) 
-		{
-			render()->buffer[y][x] = 0;
-		}
-	}
 	return (0);
 }
