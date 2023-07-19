@@ -33,7 +33,7 @@ MLX			= mlx_linux/libmlx_Linux.a
 
 INC			= -I inc -I mlx_linux
 
-CFLAGS 		= -Wall -Wextra -Werror $(INC) -g -fsanitize=address
+CFLAGS 		= -Wall -Wextra -Werror $(INC) -g #-fsanitize=address
 
 RM 			= rm -rf
 LIBS_FLAGS	= -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz

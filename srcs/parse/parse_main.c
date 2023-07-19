@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/12 09:31:06 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:44:59 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,6 @@ int	parse_main(char **av)
 	check_map(this(), render());
 	this()->f_rgb = check_colour(this()->floor);
 	this()->c_rgb = check_colour(this()->ceiling);
-	// rm_cub(this());
+	// rm_cub(this(), game());
 	return (0);
 }

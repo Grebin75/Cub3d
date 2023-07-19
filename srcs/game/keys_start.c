@@ -8,7 +8,7 @@ int	close_keys(int keycode)
 	if (keycode == 65307)
 	{
 		printf("You closed the game.\n");
-		rm_cub(this());
+		rm_cub(this(), game());
 	}
 	return (1);
 }
@@ -16,6 +16,6 @@ int	close_keys(int keycode)
 int	button_exit(void)
 {
 	printf("You closed the game.\n");
-	rm_cub(this());
+	rm_cub(this(), game());
 	return (0);
 }

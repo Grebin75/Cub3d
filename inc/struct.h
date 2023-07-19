@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/18 09:53:56 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:44:02 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ struct	s_render{
 
 t_cub		*this(void);
 void		print_cub(t_cub *cub);
-void		rm_cub(t_cub *cub);
+void		rm_cub(t_cub *cub, t_game *game);
 void		print_error(char *s);
 t_game		*game(void);
 t_render	*render(void);

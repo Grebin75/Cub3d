@@ -11,7 +11,7 @@ static void	check_down(int i, int j)
 		i++;
 	}
 	printf("ABERTO BAIXO\n");
-	rm_cub(this());
+	rm_cub(this(), game());
 }
 
 static void	check_up(int i, int j)
@@ -26,7 +26,7 @@ static void	check_up(int i, int j)
 			i--;
 	}
 	printf("ABERTO CIMA\n");
-	rm_cub(this());
+	rm_cub(this(), game());
 }
 
 static void	check_right(int i, int j)
@@ -40,7 +40,7 @@ static void	check_right(int i, int j)
 		j++;
 	}
 	printf("ABERTO DIREITA\n");
-	rm_cub(this());
+	rm_cub(this(), game());
 }
 
 static void	check_left(int i, int j)
@@ -54,7 +54,7 @@ static void	check_left(int i, int j)
 		j--;
 	}
 	printf("ABERTO ESQUERDA\n");
-	rm_cub(this());
+	rm_cub(this(), game());
 }
 
 void	check_all(int i, int j)

@@ -10,7 +10,7 @@ static int	top_bottom_check(t_cub *cub)
 		if (cub->map[0][j] != '1' && cub->map[0][j] != ' ')
 		{
 			printf("ERROR TOP");
-			rm_cub(cub);
+			rm_cub(cub, game());
 		}
 	}
 	return (1);

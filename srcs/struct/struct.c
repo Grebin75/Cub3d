@@ -6,20 +6,43 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:44:00 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/10 12:30:17 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/19 09:57:39 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/struct.h"
+#include "cub3d.h"
 
 void	print_error(char *s)
 {
 	write(2, s, ft_strlen(s));
-	rm_cub(this());
+	rm_cub(this(), game());
 }
 
-void	rm_cub(t_cub *cub)
+static void	rm_game(t_game *game, t_data *data)
 {
+	int	i;
+
+	i = 0;
+	if (game->img)
+	{
+		while (i < 4)
+			free(game->img[i++]);
+		free(game->img);
+	}
+	if (data->img)
+		mlx_destroy_image(game->mlx, data->img);
+	if (game->mlx_win)
+		mlx_destroy_window(game->mlx, game->mlx_win);
+	if (game->mlx)
+	{
+		mlx_destroy_display(game->mlx);
+		free (game->mlx);
+	}
+}
+
+void	rm_cub(t_cub *cub, t_game *game)
+{
+	rm_game(game, data());
 	if (cub->no_texture)
 		free(cub->no_texture);
 	if (cub->so_texture)
@@ -36,6 +59,7 @@ void	rm_cub(t_cub *cub)
 		free_matrix(cub->map);
 	exit (0);
 }
+
 
 void	print_cub(t_cub *cub)
 {
