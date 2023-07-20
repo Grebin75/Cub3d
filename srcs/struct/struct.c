@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:44:00 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/19 09:57:39 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:10:52 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	rm_cub(t_cub *cub, t_game *game)
 		free_matrix(cub->map);
 	exit (0);
 }
-
 
 void	print_cub(t_cub *cub)
 {

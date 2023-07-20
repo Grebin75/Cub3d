@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/20 13:13:20 by gade-alm          #+#    #+#             */
+/*   Updated: 2023/07/20 13:13:20 by gade-alm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/parse.h"
 
 static int	top_bottom_check(t_cub *cub)
@@ -8,10 +20,7 @@ static int	top_bottom_check(t_cub *cub)
 	while (cub->map[0][++j])
 	{
 		if (cub->map[0][j] != '1' && cub->map[0][j] != ' ')
-		{
-			printf("ERROR TOP");
-			rm_cub(cub, game());
-		}
+			print_error("Error on top or bottom of the map");
 	}
 	return (1);
 }

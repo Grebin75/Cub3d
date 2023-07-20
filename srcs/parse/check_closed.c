@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_closed.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/20 13:12:10 by gade-alm          #+#    #+#             */
+/*   Updated: 2023/07/20 13:12:10 by gade-alm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/parse.h"
 
 static void	check_down(int i, int j)
@@ -10,8 +22,7 @@ static void	check_down(int i, int j)
 			return ;
 		i++;
 	}
-	printf("ABERTO BAIXO\n");
-	rm_cub(this(), game());
+	print_error("Open on the bottom");
 }
 
 static void	check_up(int i, int j)
@@ -25,8 +36,7 @@ static void	check_up(int i, int j)
 		else
 			i--;
 	}
-	printf("ABERTO CIMA\n");
-	rm_cub(this(), game());
+	print_error("Open on the top");
 }
 
 static void	check_right(int i, int j)
@@ -39,8 +49,7 @@ static void	check_right(int i, int j)
 			return ;
 		j++;
 	}
-	printf("ABERTO DIREITA\n");
-	rm_cub(this(), game());
+	print_error("Open on the right");
 }
 
 static void	check_left(int i, int j)
@@ -53,8 +62,7 @@ static void	check_left(int i, int j)
 			return ;
 		j--;
 	}
-	printf("ABERTO ESQUERDA\n");
-	rm_cub(this(), game());
+	print_error("Open on the left");
 }
 
 void	check_all(int i, int j)

@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 13:32:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/14 10:36:29 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:15:46 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	check_path(t_cub *cub)
 	exist(cub->we_texture);
 	exist(cub->ea_texture);
 }
-
 
 int	numlen(int n)
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_ray.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/20 13:11:46 by gade-alm          #+#    #+#             */
+/*   Updated: 2023/07/20 13:11:51 by gade-alm         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 static void	init_dda_calc(t_render *render)
@@ -27,7 +39,6 @@ static void	init_dda_calc(t_render *render)
 		* render->delta_y);
 	}
 }
-
 
 void	init_ray(t_render *render, t_game *game, int x)
 {
@@ -77,10 +88,10 @@ void	draw_size(t_render *render, t_game *game)
 void	save_draw_numbers(t_render *render)
 {
 	if (render->side == 0)
-		render->wall_x = (render->ply_y + 0.1) + \
+		render->wall_x = (render->ply_y) + \
 		render->wall_dist * render->ray_diry;
 	else
-		render->wall_x = (render->ply_x + 0.1) + \
+		render->wall_x = (render->ply_x) + \
 		render->wall_dist * render->ray_dirx;
 	render->wall_x -= floor(render->wall_x);
 }

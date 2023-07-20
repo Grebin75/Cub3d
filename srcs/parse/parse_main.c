@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/19 09:44:59 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:19:23 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,6 @@ char	*copy_arg(char *line)
 	new[j] = 0;
 	return (new);
 }
-
-void	is_empty(char *arg, char *newarg)
-{
-	if (arg)
-	{
-		print_error("Invalid Format");
-		free(newarg);
-	}
-}
-
 
 void	fill_struct2(char *arg, char flag)
 {
@@ -106,10 +96,8 @@ int	parse_main(char **av)
 	fill_args(file);
 	check_struct(this());
 	check_path(this());
-	// print_cub(this());
 	check_map(this(), render());
 	this()->f_rgb = check_colour(this()->floor);
 	this()->c_rgb = check_colour(this()->ceiling);
-	// rm_cub(this(), game());
 	return (0);
 }

@@ -6,14 +6,23 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:41:06 by grebin            #+#    #+#             */
-/*   Updated: 2023/05/31 15:14:00 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:19:06 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
 
+void	is_empty(char *arg, char *newarg)
+{
+	if (arg)
+	{
+		print_error("Invalid Format");
+		free(newarg);
+	}
+}
+
 int	format_checker(char *str)
-{	
+{
 	if (ft_strncmp(ft_strrchr(str, '.'), ".cub", 5))
 		print_error("Invalid file format");
 	return (0);

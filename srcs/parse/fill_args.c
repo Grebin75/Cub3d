@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/05 13:48:42 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:19:02 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	fill_map(char **file, int i)
 	this()->map[++j] = NULL;
 }
 
-
 int	is_valid(char *line)
 {
 	if (ft_strncmp("NO ", line, 3) == 0 || ft_strncmp("SO ", line, 3) == 0 || \
@@ -74,7 +73,6 @@ int	is_valid(char *line)
 		return (1);
 	return (0);
 }
-
 
 int	split_args(char *line, char **file)
 {

@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:17 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/14 10:36:32 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 13:18:40 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ char	**file_to_str(char **map, int fd, int i);
 char	**open_file(char *file);
 void	fill_struct(char *arg, char flag);
 int		check_map(t_cub *cub, t_render *render);
+void	is_empty(char *arg, char *newarg);
 void	check_path(t_cub *cub);
 
 // ARGS
