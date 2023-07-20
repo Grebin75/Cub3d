@@ -5,25 +5,25 @@ static void	init_dda_calc(t_render *render)
 	if (render->ray_dirx < 0)
 	{
 		render->stepx = -1;
-		render->side_dist_x = (((render->ply_x + 0.1) - render->mapx) \
+		render->side_dist_x = (((render->ply_x) - render->mapx) \
 		* render->delta_x);
 	}
 	else
 	{
 		render->stepx = 1;
-		render->side_dist_x = ((render->mapx + 1.0 - (render->ply_x - 0.1)) \
+		render->side_dist_x = ((render->mapx + 1.0 - (render->ply_x)) \
 		* render->delta_x);
 	}
 	if (render->ray_diry < 0)
 	{
 		render->stepy = -1;
-		render->side_dist_y = (((render->ply_y + 0.1) - render->mapy) \
+		render->side_dist_y = (((render->ply_y) - render->mapy) \
 		* render->delta_y);
 	}
 	else
 	{
 		render->stepy = 1;
-		render->side_dist_y = ((render->mapy + 1.0 - (render->ply_y - 0.1)) \
+		render->side_dist_y = ((render->mapy + 1.0 - (render->ply_y)) \
 		* render->delta_y);
 	}
 }
