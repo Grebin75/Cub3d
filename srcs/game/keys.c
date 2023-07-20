@@ -28,22 +28,26 @@ static void	key_ad(t_render *render, int keycode)
 {
 	double	tmp_x;
 	double	tmp_y;
+	int		side;
 
+	if (render->angle == 270 || render->angle == 0)
+		side = -1;
+	else
+		side = 1;
 	tmp_x = 0;
 	tmp_y = 0;
 	if (keycode == 97)
 	{
-		tmp_x = render->ply_x + render->dir_x * render->mv_speed;
-		tmp_y = render->ply_y + render->dir_y * render->mv_speed;
+		tmp_x = render->ply_x - render->dir_y * render->mv_speed * side;
+		tmp_y = render->ply_y + render->dir_x * render->mv_speed * side;
 	}
 	else if (keycode == 100)
 	{
-		tmp_x = render->ply_x - render->dir_x * render->mv_speed;
-		tmp_y = render->ply_y - render->dir_y * render->mv_speed;
+		tmp_x = render->ply_x + render->dir_y * render->mv_speed * side;
+		tmp_y = render->ply_y - render->dir_x * render->mv_speed * side;
 	}
 	if (this()->map[(int)tmp_y][(int)tmp_x] != '1')
 	{
-		printf("%f\n%f\n", tmp_x, tmp_y);
 		render->ply_x = tmp_x;
 		render->ply_y = tmp_y;
 	}

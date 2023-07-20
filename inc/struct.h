@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:42:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/19 09:44:02 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/20 11:56:27 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ struct	s_render{
 	int		img_width;
 	int		buffer[GAME_HEIGHT][GAME_WIDTH];
 	int		re_buffer;
-	double	ply_angle;
 	int		floor_text;
 	int		ceiling_text;
 	t_img	*image;
