@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:11:46 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:11:51 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:22:45 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	init_ray(t_render *render, t_game *game, int x)
 	render->cam_x = ((2 * x) / (double)(game->win_width) - 1);
 	render->ray_dirx = render->dir_x + render->plane_x * render->cam_x;
 	render->ray_diry = render->dir_y + render->plane_y * render->cam_x;
-	render->mapx = (int)render->ply_x ;
+	render->mapx = (int)render->ply_x;
 	render->mapy = (int)render->ply_y;
 	render->delta_x = fabs(1 / render->ray_dirx);
 	render->delta_y = fabs(1 / render->ray_diry);

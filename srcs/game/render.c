@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:11:28 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:11:28 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/25 11:20:41 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static void	draw_back(t_game *game, t_render *render)
 		x = 0;
 		while (y < game->win_height / 2 && x < game->win_width)
 		{
-			render->buffer[y][x] = render->floor_text;
+			render->buffer[y][x] = render->ceiling_text;
 			x++;
 		}
 		x = 0;
 		while (y > game->win_height / 2 && x < game->win_width)
 		{
-			render->buffer[y][x] = render->ceiling_text;
+			render->buffer[y][x] = render->floor_text;
 			x++;
 		}
 		y++;

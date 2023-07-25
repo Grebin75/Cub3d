@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:11:21 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/21 11:46:18 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:44:58 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	check_konami(int keycode, t_game *game)
 {
 	static int	konami[10] = {65362, 65362, 65364, 65364, 65361, \
-	65361, 65363, 65363, 98, 97};
+	65363, 65361, 65363, 98, 97};
 
 	if (keycode == konami[game->code])
 		game->code++;

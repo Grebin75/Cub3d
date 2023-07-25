@@ -6,11 +6,23 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:12:10 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:12:10 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/25 12:03:34 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
+
+static void	check_surround(int i, int j)
+{
+	if (i < game()->height)
+	{
+		if (!this()->map[i + 1][j + 1] || this()->map[i + 1][j + 1] == ' ' \
+		|| !this()->map[i + 1][j - 1] || this()->map[i + 1][j - 1] == ' ' \
+		|| !this()->map[i - 1][j + 1] || this()->map[i - 1][j + 1] == ' ' \
+		|| !this()->map[i - 1][j - 1] || this()->map[i - 1][j - 1] == ' ')
+			print_error("Erro na diagonal\n");
+	}
+}
 
 static void	check_down(int i, int j)
 {
@@ -71,4 +83,5 @@ void	check_all(int i, int j)
 	check_right(i, j);
 	check_up(i, j);
 	check_left(i, j);
+	check_surround(i, j);
 }

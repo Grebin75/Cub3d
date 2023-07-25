@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:13:20 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:13:20 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:18:12 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	check_map(t_cub *cub, t_render *render)
 			if (cub->map[i][j] == 'N' || cub->map[i][j] == 'S' ||
 			cub->map[i][j] == 'E' || cub->map[i][j] == 'W')
 			{
-				render->ply_x = j;
-				render->ply_y = i;
+				render->ply_x = j + 0.2;
+				render->ply_y = i + 0.2;
 				render->angle = 0 + (90 * (cub->map[i][j] == 'W')) + (180 * \
 				(cub->map[i][j] == 'S')) + (270 * (cub->map[i][j] == 'E'));
 			}

@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:10:21 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:10:22 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/25 13:43:33 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ void	init_vars(t_game *game, t_render *render)
 	game->win_height = 480;
 	render->img_height = 64;
 	render->img_width = 64;
-	render->dir_x = (-1 * (render->angle == 90)) + (render->angle == 270);
-	render->dir_y = (-1 * (render->angle == 0)) + (render->angle == 180);
+	render->dir_x = (-1.0 * (render->angle == 90)) + \
+	((render->angle == 270) + 0.1);
+	render->dir_y = (-1.0 * (render->angle == 0)) + (render->angle == 180);
 	render->plane_y = 0.66 * ((render->angle == 270)) + (render->angle == 90);
 	render->plane_x = 0.66 * ((render->angle == 0)) + (render->angle == 180);
 	render->mv_speed = 0.05;
