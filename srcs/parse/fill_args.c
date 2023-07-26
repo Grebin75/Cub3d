@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gabrieltorres <gabrieltorres@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/20 13:19:02 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/26 22:38:19 by gabrieltorr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	verify_map(char **map)
 		{
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'E'\
 			&& map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'W' \
-			&& map[i][j] != 32 && map[i][j] != '2' && map[i][j] != '3'\
-			&& map[i][j] != '4')
+			&& map[i][j] != 32)
 				print_error("Invalid char");
 			if (map[i][j] == 'S' || map[i][j] == 'W' || map[i][j] == 'E' \
 			|| map[i][j] == 'N')
