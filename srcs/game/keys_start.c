@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:11:21 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/25 12:44:58 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:44:54 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	check_konami(int keycode, t_game *game)
 		game->code = 0;
 	if (game->code == 10)
 	{
-		print_error("You WON the game using KONAMI CODE, congrats!");
+		print_error("You WON the game using KONAMI CODE, congrats!\n");
 		game->code = 0;
 	}
 }
@@ -35,12 +35,12 @@ int	close_keys(int keycode)
 	keycode == 115 || keycode == 119 || keycode == 100 || keycode == 97)
 		movement_keys(keycode);
 	if (keycode == 65307)
-		print_error("You closed the game");
+		print_error("You closed the game\n");
 	return (1);
 }
 
 int	button_exit(void)
 {
-	print_error("You closed the game");
+	print_error("You closed the game\n");
 	return (0);
 }

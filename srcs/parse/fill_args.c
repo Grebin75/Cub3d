@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_args.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gabrieltorres <gabrieltorres@student.42    +#+  +:+       +#+        */
+/*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 14:52:36 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/26 22:38:19 by gabrieltorr      ###   ########.fr       */
+/*   Updated: 2023/07/27 09:47:56 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ void	verify_map(char **map)
 			if (map[i][j] != '0' && map[i][j] != '1' && map[i][j] != 'E'\
 			&& map[i][j] != 'N' && map[i][j] != 'S' && map[i][j] != 'W' \
 			&& map[i][j] != 32)
-				print_error("Invalid char");
+				print_error("Error:\nInvalid char\n");
 			if (map[i][j] == 'S' || map[i][j] == 'W' || map[i][j] == 'E' \
 			|| map[i][j] == 'N')
 				spawncounter++;
 		}
 	}
 	if (spawncounter != 1)
-		print_error("Multiple spawn locations");
+		print_error("Error:\nWrong number of spawn locations\n");
 	game()->height = i;
 }
 
@@ -103,7 +103,7 @@ void	fill_args(char **file)
 		if (!is_valid(file[i]) && ac != 6)
 		{
 			free_matrix(file);
-			print_error("Invalid arguments format\n");
+			print_error("Error:\nInvalid arguments format\n");
 		}
 		if (!is_valid(file[i]) && ac == 6)
 		{

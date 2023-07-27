@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:17 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/20 13:18:40 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:31:43 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ char	*copy_arg(char *line);
 int		check_colour(char *colour);
 void	check_path(t_cub *cub);
 void	verify_map(char **map);
+void	check_surround(int i, int j);
 
 // CHECK POINT
 void	check_all(int i, int j);

@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:33:48 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/25 11:22:28 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:48:08 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,19 @@ void	fill_struct(char *arg, char flag)
 void	check_struct(t_cub *cub)
 {
 	if (!cub->ceiling)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	if (!cub->floor)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	if (!cub->no_texture)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	if (!cub->so_texture)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	if (!cub->ea_texture)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	if (!cub->we_texture)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	if (!cub->map)
-		print_error("Missing args");
+		print_error("Error:\nMissing args\n");
 	verify_map(cub->map);
 }
 

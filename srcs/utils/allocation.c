@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:48:32 by grebin            #+#    #+#             */
-/*   Updated: 2023/06/12 09:29:59 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:48:18 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	malloc_check(void *arg, char **free)
 	{
 		if (free)
 			free_matrix(free);
-		print_error("Malloc error");
+		print_error("Error:\nMalloc error\n");
 	}
 }
 

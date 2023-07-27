@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:10:09 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:10:10 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:45:13 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init_textures(t_cub *cub, t_game *game)
 		game->img[i] = malloc(sizeof(int) * (render()->img_height * \
 		render()->img_width));
 		if (!game->img[i])
-			print_error("Error on Init Textures");
+			print_error("Error:\nInit Textures error\n");
 	}
 	i = -1;
 	while (++i < 4)

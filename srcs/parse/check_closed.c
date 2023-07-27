@@ -6,23 +6,11 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:12:10 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/25 12:03:34 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:46:11 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
-
-static void	check_surround(int i, int j)
-{
-	if (i < game()->height)
-	{
-		if (!this()->map[i + 1][j + 1] || this()->map[i + 1][j + 1] == ' ' \
-		|| !this()->map[i + 1][j - 1] || this()->map[i + 1][j - 1] == ' ' \
-		|| !this()->map[i - 1][j + 1] || this()->map[i - 1][j + 1] == ' ' \
-		|| !this()->map[i - 1][j - 1] || this()->map[i - 1][j - 1] == ' ')
-			print_error("Erro na diagonal\n");
-	}
-}
 
 static void	check_down(int i, int j)
 {
@@ -34,7 +22,7 @@ static void	check_down(int i, int j)
 			return ;
 		i++;
 	}
-	print_error("Open on the bottom");
+	print_error("Error:\nMap is open\n");
 }
 
 static void	check_up(int i, int j)
@@ -48,7 +36,7 @@ static void	check_up(int i, int j)
 		else
 			i--;
 	}
-	print_error("Open on the top");
+	print_error("Error:\nMap is open\n");
 }
 
 static void	check_right(int i, int j)
@@ -61,7 +49,7 @@ static void	check_right(int i, int j)
 			return ;
 		j++;
 	}
-	print_error("Open on the right");
+	print_error("Error:\nMap is open\n");
 }
 
 static void	check_left(int i, int j)
@@ -74,7 +62,7 @@ static void	check_left(int i, int j)
 			return ;
 		j--;
 	}
-	print_error("Open on the left");
+	print_error("Error:\nMap is open\n");
 }
 
 void	check_all(int i, int j)

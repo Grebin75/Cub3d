@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:41:06 by grebin            #+#    #+#             */
-/*   Updated: 2023/07/20 13:19:06 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:46:53 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	is_empty(char *arg, char *newarg)
 {
 	if (arg)
 	{
-		print_error("Invalid Format");
+		print_error("Error:\nInvalid Format\n");
 		free(newarg);
 	}
 }
@@ -24,7 +24,7 @@ void	is_empty(char *arg, char *newarg)
 int	format_checker(char *str)
 {
 	if (ft_strncmp(ft_strrchr(str, '.'), ".cub", 5))
-		print_error("Invalid file format");
+		print_error("Error:\nInvalid file format\n");
 	return (0);
 }
 
@@ -38,7 +38,7 @@ char	**file_to_str(char **file, int fd, int i)
 	if (!file)
 		file = malloc(sizeof(char *) * (i + 1));
 	if (!file)
-		printf("FILE ERROR\n");
+		printf("Error:\nFile Error\n");
 	file[i] = str;
 	return (file);
 }
@@ -51,10 +51,10 @@ char	**open_file(char *map)
 	if (fd != -1)
 	{
 		close(fd);
-		printf("It's a directory type\n");
+		printf("Error:\nIt's a directory type\n");
 	}
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
-		printf("Check name of the file\n");
+		printf("Error:\nCheck name of the file\n");
 	return (file_to_str(NULL, fd, 0));
 }

@@ -6,11 +6,23 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:13:20 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/25 13:18:12 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/27 09:46:20 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/parse.h"
+
+void	check_surround(int i, int j)
+{
+	if (i < game()->height)
+	{
+		if (!this()->map[i + 1][j + 1] || this()->map[i + 1][j + 1] == ' ' \
+		|| !this()->map[i + 1][j - 1] || this()->map[i + 1][j - 1] == ' ' \
+		|| !this()->map[i - 1][j + 1] || this()->map[i - 1][j + 1] == ' ' \
+		|| !this()->map[i - 1][j - 1] || this()->map[i - 1][j - 1] == ' ')
+			print_error("Error:\nMap is open\n");
+	}
+}
 
 static int	top_bottom_check(t_cub *cub)
 {
@@ -20,7 +32,7 @@ static int	top_bottom_check(t_cub *cub)
 	while (cub->map[0][++j])
 	{
 		if (cub->map[0][j] != '1' && cub->map[0][j] != ' ')
-			print_error("Error on top or bottom of the map");
+			print_error("Error:\nMap is open\n");
 	}
 	return (1);
 }
