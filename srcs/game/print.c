@@ -6,34 +6,63 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:11:13 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/20 13:11:13 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/28 09:32:37 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static void	print_walls(t_render *render, int x, int y)
+static void	print_walls_2(t_render *render, int x, int y)
 {
 	if (render->side == 0 && \
 	this()->map[render->mapy][render->mapx] == '1')
 	{
 		if (render->mapx < render->ply_x)
-			render->buffer[y][x] = game()->img[3] \
+			render->buffer[y][x] = game()->img[2] \
 			[render->img_height * render->texture_y + render->texture_x];
 		else
-			render->buffer[y][x] = game()->img[2] \
+			render->buffer[y][x] = game()->img[3] \
 			[render->img_height * render->texture_y + render->texture_x];
 	}
 	else if (render->side == 1 && \
 	this()->map[render->mapy][render->mapx] == '1')
 	{
 		if (render->mapy < render->ply_y)
-			render->buffer[y][x] = game()->img[0] \
-			[render->img_height * render->texture_y + render->texture_x];
-		else
 			render->buffer[y][x] = game()->img[1] \
 			[render->img_height * render->texture_y + render->texture_x];
+		else
+			render->buffer[y][x] = game()->img[0] \
+			[render->img_height * render->texture_y + render->texture_x];
 	}
+}
+
+static void	print_walls(t_render *render, int x, int y)
+{
+	if (render->angle == 0 || render->angle == 270)
+	{
+		if (render->side == 0 && \
+		this()->map[render->mapy][render->mapx] == '1')
+		{
+			if (render->mapx < render->ply_x)
+				render->buffer[y][x] = game()->img[3] \
+				[render->img_height * render->texture_y + render->texture_x];
+			else
+				render->buffer[y][x] = game()->img[2] \
+				[render->img_height * render->texture_y + render->texture_x];
+		}
+		else if (render->side == 1 && \
+		this()->map[render->mapy][render->mapx] == '1')
+		{
+			if (render->mapy < render->ply_y)
+				render->buffer[y][x] = game()->img[0] \
+				[render->img_height * render->texture_y + render->texture_x];
+			else
+				render->buffer[y][x] = game()->img[1] \
+				[render->img_height * render->texture_y + render->texture_x];
+		}
+	}
+	if (render->angle == 90 || render->angle == 180)
+		print_walls_2(render, x, y);
 }
 
 void	textures_wall(t_render *render, t_game *game, int x)

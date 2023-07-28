@@ -6,7 +6,7 @@
 /*   By: gade-alm <gade-alm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 13:10:09 by gade-alm          #+#    #+#             */
-/*   Updated: 2023/07/27 09:45:13 by gade-alm         ###   ########.fr       */
+/*   Updated: 2023/07/28 09:27:13 by gade-alm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static void	load_images(int *text, char *path, t_render *render, t_game *game)
 
 	(data()->img) = mlx_xpm_file_to_image(game->mlx, path, &render->img_width, \
 	&render->img_height);
+	if (!data()->img)
+		print_error("Error:\nXPM to Image\n");
 	(data()->addr) = (int *)mlx_get_data_addr(data()->img, \
 	&data()->bits_per_pixel, &data()->line_length, &data()->endian);
 	x = -1;

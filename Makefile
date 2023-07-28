@@ -25,7 +25,7 @@ OBJS		= $(subst $(SRCS_DIR), $(OBJS_DIR), $(SRCS:.c=.o))
 
 OBJS_DIR	= objs
 
-NAME		= cub3d
+NAME		= cub3D
 
 CC			= cc
 
@@ -51,7 +51,7 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
 			@$(CC) $(CFLAGS) -c $< -o $@
 
 t: re
-	./cub3d teste.cub
+	./cub3D teste.cub
 
 clean:
 	$(RM) $(OBJS_DIR) a.out
